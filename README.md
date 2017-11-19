@@ -1,5 +1,7 @@
 # The ICAT Manual
 
+[![Join the chat at https://gitter.im/icatproject/icat.manual](https://badges.gitter.im/icatproject/icat.manual.svg)](https://gitter.im/icatproject/icat.manual?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 TODO: combine content from `about.md` and the http://icatproject.org home page
 
 

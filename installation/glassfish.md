@@ -12,7 +12,7 @@ You need to ensure that it is in the PATH of the person running glassfish.You sh
 
 # Glassfish
 
-Designate an account for running glassfish. This is called here “the glassfish account” though the user name does not have to be glassfish. It is recommended to obtain the platform independent zip file \(without jdk\) and unpack it into the home directory of the glassfish account. Avoid using installers. After unpacking add the bin directory to the PATH of the user as indicated in the table below. Glassfish 4.0 is currently recommended.
+Designate an account for running glassfish. This is called here “the glassfish account” though the user name does not have to be glassfish. It is recommended to obtain the platform independent zip file \(without jdk\) and unpack it into the home directory of the glassfish account. Avoid using installers. After unpacking add the bin directory to the PATH of the user as indicated in the table below. Glassfish 4.0 is currently recommended.
 
 | TESTED DISTRIBUTION | PATH COMPONENT |
 | :--- | :--- |
@@ -22,19 +22,19 @@ Ensure that “hostname -f” returns a sensible result.
 
 ## Scripted setup
 
-Then  run [setup-glassfish.py](https://icatproject.org/misc/scripts/setup-glassfish.py) which takes as arguments the name of the domain you wish to create, the amount of memory to allow for the Java heap in glassfish and optionally a password. If you don’t specify a password you will be prompted for it once without echoing. To use 75% of the available memory specify 75% as the second parameter otherwise write 2048m or, equivalently 2g. For the script to work properly the glassfish default ports should all be available.
+Then  run [setup-glassfish.py](https://icatproject.org/misc/scripts/setup-glassfish.py) which takes as arguments the name of the domain you wish to create, the amount of memory to allow for the Java heap in glassfish and optionally a password. If you don’t specify a password you will be prompted for it once without echoing. To use 75% of the available memory specify 75% as the second parameter otherwise write 2048m or, equivalently 2g. For the script to work properly the glassfish default ports should all be available.
 
 Note that there was an error in this script which prevented Glassfish 4.1.1 being used. So make sure you use an up to date copy.
 
-If you wish, go to [http://localhost:4848](http://localhost:4848/) you will be redirected to https and will be able to login as admin to see from the GUI how the server is configured.
+If you wish, go to [http://localhost:4848](http://localhost:4848/) you will be redirected to https and will be able to login as admin to see from the GUI how the server is configured.
 
-## Manual setup
+## Manual setup
 
-As an alternative to running the script you can issue the commands within that script manually.  When you create the domain you will be asked to specify the admin username and password. Do not use the default empty password.
+As an alternative to running the script you can issue the commands within that script manually.  When you create the domain you will be asked to specify the admin username and password. Do not use the default empty password.
 
 ## Deployment Order
 
-Since glassfish 4 it is has been possible to specify a deployment order for applications deployed within glassfish. This can ensure that, for example, authenticators are deployed before ICAT. The default sequence number is 100 and components with a lower deployment order will be started before those with a higher value. New releases of ICAT components will deploy authenticators, icat, ids and ijp as 80, 100, 120 and 140 respectively. There is also a script:  [fix-deployment-order.py](https://icatproject.org/misc/scripts/fix-deployment-order.py) which may be used on existing deployments of glassfish 4.
+Since glassfish 4 it is has been possible to specify a deployment order for applications deployed within glassfish. This can ensure that, for example, authenticators are deployed before ICAT. The default sequence number is 100 and components with a lower deployment order will be started before those with a higher value. New releases of ICAT components will deploy authenticators, icat, ids and ijp as 80, 100, 120 and 140 respectively. There is also a script:  [fix-deployment-order.py](https://icatproject.org/misc/scripts/fix-deployment-order.py) which may be used on existing deployments of glassfish 4.
 
 ## Firewalls
 
@@ -42,7 +42,7 @@ Depending upon your installation it is possible that the ports normally used by 
 
 ## Proxies
 
-To allow  Glassfish to make use of a web proxy when making outgoing calls use asadmin to identify the host and port to be used. For example:
+To allow  Glassfish to make use of a web proxy when making outgoing calls use asadmin to identify the host and port to be used. For example:
 
 ```
 asadmin create-jvm-options -Dhttp.proxyHost=wwwcache.rl.ac.uk
@@ -51,7 +51,7 @@ asadmin create-jvm-options -Dhttp.proxyPort=8080
 
 ## Certificates
 
-If you have a “genuine” SSL certificate from a trusted provider to install, follow the instructions at: [certificate](http://icatproject.org/installation/glassfish/certificate/).
+If you have a “genuine” SSL certificate from a trusted provider to install, follow the instructions at: [certificate](http://icatproject.org/installation/glassfish/certificate/).
 
 If you don’t have a trusted certificate then any java application seeking to use the glassfish will need to be told to trust it. Go to the config directory for your domain and:
 
@@ -68,18 +68,10 @@ cp cacerts jssecacerts
 which leaves the original cacerts unchanged. However jssecacerts will be used in preference to cacerts. Then:
 
 ```
-keytool -import -keystore jssecacerts -file 
-<
-cert.der
->
- -storepass changeit -alias 
-<
-full host name
->
- -noprompt
+keytool -import -keystore jssecacerts -file <cert.der> -storepass changeit -alias <full host name> -noprompt
 ```
 
-where &lt;cert.der&gt; identifies the exported certificate and the recommended alias is the fully qualified name of the machine you are trusting.
+where &lt;cert.der&gt; identifies the exported certificate and the recommended alias is the fully qualified name of the machine you are trusting.
 
 You may also choose to convert the certificate to pem format for use with a Python client:
 

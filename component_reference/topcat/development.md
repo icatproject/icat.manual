@@ -5,8 +5,7 @@ You can create a Topcat development environment via Vagrant \([https://www.vagra
 ```
 git clone https://github.com/icatproject/topcat.git
 
-cd
- topcat
+cd topcat
 vagrant up
 ```
 
@@ -36,8 +35,7 @@ You can build a distro by:
 ```
 vagrant ssh
 
-cd
- /vagrant
+cd /vagrant
 mvn clean install
 ```
 
@@ -51,11 +49,7 @@ If you chose not to use vagrant then you need to setup node and npm yourself. Go
 
 ```
 wget https://nodejs.org/dist/v6.11.3/node-v6.11.3-linux-x64.tar.xz
-tar --xz -xf node-v6.11.3-linux-x64.tar.xz 
-&
-&
- rm node-v6.11.3-linux-x64.tar.xz
-
+tar --xz -xf node-v6.11.3-linux-x64.tar.xz && rm node-v6.11.3-linux-x64.tar.xz
 ```
 
 to get what is currently the LTS version of node and npm. Then add to $PATH the directory: node-v6.11.3-linux-x64/bin and
@@ -63,14 +57,12 @@ to get what is currently the LTS version of node and npm. Then add to $PATH the 
 ```
 npm install -g bower
 npm install -g grunt-cli
-
 ```
 
 to install bower and grunt-cli "globally". Then go to where you have checked out topcat and do the usual
 
 ```
 mvn clean install
-
 ```
 
 

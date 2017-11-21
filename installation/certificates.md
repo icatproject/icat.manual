@@ -2,12 +2,6 @@
 
 # Installing a TERENA \(Comodo\) Multi-Domain SSL Certificate in Payara
 
-**IMPORTANT NOTES BEFORE YOU START:**
-
-To work around this, the admin console should be left to run using the self-signed “s1as” certificate and you should modify your https settings \(typically http-listener-2\) to use the “Certificate NickName” you use when importing it into the Payara keystore.
-
-The password on the certificate you import into the Payara keystore MUST match the password on the Java keystore itself.
-
 **Assumptions:**
 
 These instructions assume you have received a zip file containing the following files \(or similar\):

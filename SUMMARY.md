@@ -52,19 +52,33 @@
     * [ids.plugin installation](component_reference/ids.plugin/installation.md)
     * [ids.plugin development](component_reference/ids.plugin/development.md)
   * [ids.server](component_reference/ids.server/README.md)
-    * [ids.server installation](component_reference/ids.server/installation.md)
     * [ids.server release notes](component_reference/ids.server/release_notes.md)
-      * [ids.server installation version 1.8.0](component_reference/ids.server/1.8.0/installation.md)
-      * [ids.server installation version 1.7.0](component_reference/ids.server/1.7.0/installation.md)
-      * [ids.server installation version 1.6.0](component_reference/ids.server/1.6.0/installation.md)
-      * [ids.server installation version 1.5.0](component_reference/ids.server/1.5.0/installation.md)
-      * [ids.server installation version 1.4.0](component_reference/ids.server/1.4.0/installation.md)
-      * [ids.server installation version 1.3.1](component_reference/ids.server/1.3.1/installation.md)
-      * [ids.server installation version 1.3.0](component_reference/ids.server/1.3.0/installation.md)
-      * [ids.server installation version 1.2.0](component_reference/ids.server/1.2.0/installation.md)
-      * [ids.server installation version 1.1.0](component_reference/ids.server/1.1.0/installation.md)
-      * [ids.server installation version 1.0.1](component_reference/ids.server/1.0.1/installation.md)
-      * [ids.server installation version 1.0.0](component_reference/ids.server/1.0.0/installation.md)
+    * Version 1.8.0
+      * [ids.server installation](component_reference/ids.server/1.8.0/installation.md)
+      * [IDS Restful API](https://repo.icatproject.org/site/ids/server/1.8.0/miredot/index.html)
+    * Version 1.7.0
+      * [ids.server installation](component_reference/ids.server/1.7.0/installation.md)
+      * [IDS Restful API](https://repo.icatproject.org/site/ids/server/1.7.0/miredot/index.html)
+    * Version 1.6.0
+      * [ids.server installation](component_reference/ids.server/1.6.0/installation.md)
+      * [IDS Restful API](https://repo.icatproject.org/site/ids/server/1.6.0/miredot/index.html)
+    * Version 1.5.0
+      * [ids.server installation](component_reference/ids.server/1.5.0/installation.md)
+      * [IDS Restful API](https://repo.icatproject.org/site/ids/server/1.5.0/miredot/index.html)
+    * Version 1.4.0
+      * [ids.server installation](component_reference/ids.server/1.4.0/installation.md)
+    * Version 1.3.1
+      * [ids.server installation](component_reference/ids.server/1.3.1/installation.md)
+    * Version 1.3.0
+      * [ids.server installation](component_reference/ids.server/1.3.0/installation.md)
+    * Version 1.2.0
+      * [ids.server installation](component_reference/ids.server/1.2.0/installation.md)
+    * Version 1.1.0
+      * [ids.server installation](component_reference/ids.server/1.1.0/installation.md)
+    * Version 1.0.1
+      * [ids.server installation](component_reference/ids.server/1.0.1/installation.md)
+    * Version 1.0.0
+      * [ids.server installation](component_reference/ids.server/1.0.0/installation.md)
   * [ids.storage_file](component_reference/ids.storage_file/README.md)
     * [ids.storage_file installation](component_reference/ids.storage_file/installation.md)
     * [ids.storage_file development](component_reference/ids.storage_file/development.md)

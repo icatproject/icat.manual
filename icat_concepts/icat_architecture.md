@@ -1,6 +1,6 @@
 # The ICAT Architecture
 
-The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an \[icatproject organisation\]\([https://github.com/icatproject](https://github.com/icatproject%29%29 containing the code, a small Wiki and the Issue %28bug/ feature request%29 %29 %29%29%29\) containing the source code, a small Wiki and the Issues tracking List for that component.
+The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an
 
 Here is a small description of the principal components:
 

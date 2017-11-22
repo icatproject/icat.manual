@@ -1,6 +1,6 @@
 # The ICAT Architecture
 
-The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an icat organisation \([https://github.com/icatproject](https://github.com/icatproject%29%29 \) \) containing the source code, a small Wiki and the Isuue tracker List for that component.
+The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an icat organisation \([https://github.com/icatproject](https://github.com/icatproject%29%29 %29 \) \) containing the source code, a small Wiki and the Isuue tracker List for that component.
 
 Here is a small description of the principal components:
 
@@ -14,7 +14,7 @@ Here is a small description of the principal components:
 
 * **ICAT  manager**: a standalone Java client to visualize and manage ICAT instances.
 
-If you want to install components then go to the installation section \([http://icatproject.org/installation](http://icatproject.org/installation%29%29 %29%29. To get an overview of what is happening across repositories, you can take a look at [waffle]%28https://waffle.io/icatproject%29 %29. To get an overview of what is happening across the repositories tah ea look at [waffle]%28https://waffle.io/icatproject%29%29%29%29%29%29.To get an overview of what is happening across the repositories, you can look at %28https://waffle.io/icatproject%29 \) \). To get an overview of what is happening across the repositories take a look at https://waffle.io/icatproject .
+If you want to install components then go to the installation section \([http://icatproject.org/installation](http://icatproject.org/installation%29%29 %29%29. To get an overview of what is happening across repositories, you can take a look at [waffle]%28https://waffle.io/icatproject%29 %29. To get an overview of what is happening across the repositories tah ea look at [waffle]%28https://waffle.io/icatproject%29%29%29%29%29%29.To get an overview of what is happening across the repositories, you can look at %28https://waffle.io/icatproject%29 %29 \) \). To get an overview of what is happening across the repositories take a look at [https://waffle.io/icatproject](https://waffle.io/icatproject) .
 
 ![](/assets/ICAT-Components.png)
 

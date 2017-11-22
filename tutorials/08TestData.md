@@ -1,4 +1,4 @@
-Warning! This method is being replaced with Python-ICAT ingest (See 08B). It is recommended you use that method instead.
+Warning! This method is being replaced with Python-ICAT ingest (See 08PycatTestData). It is recommended you use that method instead.
 ---
 
 Chapter 08: Create Some Test Data With Ruby

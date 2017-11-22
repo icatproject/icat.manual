@@ -1,6 +1,6 @@
 # The ICAT Architecture
 
-The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an \[icatproject organisation\]\([https://github.com/icatproject](https://github.com/icatproject%29%29 containing the code, a small Wiki and the Issue %28bug/ feature request%29 %29 %29%29\)\) containing the source code, a small Wiki and the Issues tracking List for that component.
+The ICAT project includes a number of components, the principal ones being ICAT, IDS \(ICAT Data Service\), TopCat, IJP \(ICAT Job Portal\) and the ICAT manager. Each components has its own GitHub repository within an \[icatproject organisation\]\([https://github.com/icatproject](https://github.com/icatproject%29%29 containing the code, a small Wiki and the Issue %28bug/ feature request%29 %29 %29%29%29\) containing the source code, a small Wiki and the Issues tracking List for that component.
 
 Here is a small description of the principal components:
 
@@ -14,7 +14,7 @@ Here is a small description of the principal components:
 
 * **ICAT  manager**: a standalone Java client to visualize and manage ICAT instances.
 
-If you want to install components then go to \[installation\] \([http://icatproject.org/installation](http://icatproject.org/installation%29%29 %29%29. To get an overview of what is happening across repositories, you can take a look at [waffle]%28https://waffle.io/icatproject%29 %29. To get an overview of what is happening across the repositories tah ea look at [waffle]%28https://waffle.io/icatproject%29%29\)\).
+If you want to install components then go to \[installation\] \([http://icatproject.org/installation](http://icatproject.org/installation%29%29 %29%29. To get an overview of what is happening across repositories, you can take a look at [waffle]%28https://waffle.io/icatproject%29 %29. To get an overview of what is happening across the repositories tah ea look at [waffle]%28https://waffle.io/icatproject%29%29%29\).
 
 ![](/assets/ICAT-Components.png)
 

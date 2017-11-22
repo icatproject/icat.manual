@@ -1,5 +1,9 @@
-Chapter 08: Create Some Test Data
+Warning! This method is being replaced with Python-ICAT ingest (See 08B). It is recommended you use that method instead.
+---
+
+Chapter 08: Create Some Test Data With Ruby
 ================================
+
 
 Overview
 --------
@@ -9,12 +13,16 @@ Usually, data is inputted to ICAT (ingested) from automated scripts running at t
 Install new Ruby version
 ------------------------
 
-The Ruby version in the tutorial system is too old for the data creation script. Fortunately, we can easily build and install a more up to date version using the Ruby Version Manager ([RVM](https://rvm.io/)). First we must install the dependencies:
+The Ruby version in the tutorial system is too old for the data creation script. Fortunately, we can easily build and install a more up to date version using the Ruby Version Manager ([RVM](https://rvm.io/)). First we must install the dependencies :
 
 ```Shell
 sudo yum install patch libyaml-devel glibc-headers autoconf gcc-c++ glibc-devel patch readline-devel zlib-devel libffi-devel openssl-devel automake libtool bison sqlite-devel
 ```
+
+*N.B. This command should be run as root or as a sudo user. The rest of the steps in this chapter should be run as the non-root user.*
+
 Next we install the Ruby Version Managaer (rvm) and use it to download and install a recent version of Ruby (2.3.1) in userspace. Finally, we use `gem` - the Ruby package manager - to install some dependencies for our test data generator script.
+
 ```Shell
 curl -sSL https://get.rvm.io | bash
 source $HOME/.rvm/scripts/rvm

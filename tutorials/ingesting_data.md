@@ -16,7 +16,7 @@ All of these entities only need a name apart from DatafileFormat which also requ
 
 You should write some code to do this initial setup of your ICAT so that you have a convenient way of repeating this process in the future.
 
-![](/ingesting_data/1_preparing.png)
+![](/tutorials/ingesting_data/1_preparing.png)
 
 ## Investigation and Users
 
@@ -26,7 +26,7 @@ The best source of this data is a User Office system which you will almost certa
 
 Here on the image below you can see a graphical view of schedules for Astra-Gemini laser and all of this data is available from the User Office system at RAL.
 
-![](/ingesting_data/2_investigations.png)
+![](/tutorials/ingesting_data/2_investigations.png)
 
 To create Investigations you need to give them a name -- probably just a short identifier like Astra-Gemini ones here. It will also need a visitId if the experiment is split over a number of separate visits and a title. If a short description of the experiment is availbale then use that or you can just re-use the name field. You should also add a startDate although these are not mandatory.
 
@@ -40,7 +40,7 @@ Finally link User to Investigation by creating an InvestigationUser. To do this 
 
 One key thing your ingestion program will need is a way to discover when there is a new data to be ingested. At RAL we have 3 different ways of doing this. The first is a single input directory into which all files to be ingested must be placed by the acquisition software. This is the system we use for CLF as you can see in the list of files on the image below. This relies on all files having unique names and this means having some kind of logical system for naming files. These CLF files have the date, followed by the shot type and number, followed by the data channel name and the file type.
 
-![](/ingesting_data/3_discovering.png)
+![](/tutorials/ingesting_data/3_discovering.png)
 
 The method used by ISIS is the filesystem watcher. Basically a process listens for changes on the filesystem which is very convenient but has the downside that if you stop the process you need to have some way of going back and finding any files which were created when the process wasn't running.
 
@@ -54,7 +54,7 @@ The files themselves cannot be added directly to the Investigation but need to b
 
 All of the three main entities, Investigation, Dataset and Datafile \(image below\) can have Parameters attached to them and theses should be used to store any useful metadata. The more effort you put into adding metadata the more searchable your data will be.
 
-![](/ingesting_data/4_searchable.png)
+![](/tutorials/ingesting_data/4_searchable.png)
 
 Parameters are basically name-value pairs of type NUMERIC, STRING, or DATE\__AND_\_TIME.
 
@@ -85,7 +85,7 @@ Another way of making the ingestion scalable is to design it around an enterpris
 The ISIS ingestion system is based around an ActiveMQ server and this diagram shows the flow of data through the system.  
  The general flow is from the top left to the bottom right \(image below\).
 
-![](/ingesting_data/5_ISISingestion.png)
+![](/tutorials/ingesting_data/5_ISISingestion.png)
 
 The system starts with the FileWatcher which is kept as simple as possible. It’s only job is to monitor the file system for file creation events and then put the path to that file onto the Initial ICAT Queue. From here a program called LiveMonitor works alongside writeRaw and nxIngest to extract metadata from RAW and NEXUS files into XML files which it then puts on the ICAT Queue. A program called XMLtoICAT takes these XML files and inserts the metadata into ICAT. The Datafiles themselves are not moved – they remain on a large disk storage area where the data acquisition software puts them. Finally XMLtoICAT puts the file paths onto an SDB Queue from where a copy of the files is sent to a dark archive in a product called Safety Deposit Box.
 

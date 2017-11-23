@@ -23,39 +23,7 @@ The core entities of the CSMD for a study are summarised as follows.
 * Parameter. Parameters describe measureable quantities associated with the investigation, such as temperature, pressure, or scattering angle, describing either the parameters of the sample, the environment the data was collected in, or the parameters being measured. Parameters can be associated at different levels, such as the sample, dataset or the datafile, and have names, units, values, and allowable data ranges.
 * Authorisation: the CSMD can associate conditions on investigations and data sets, so that user specified access conditions can be specified. Thus the authorisation entity can record which user in which role can access data on specific investigations.
 
-### Reference implementation
+### 
 
-The ICAT system for cataloguing facility-generated experimental data has been in development within STFC over several years for in use at both the ISIS Facility and the Diamond Light Source. It forms part of an infrastructure supporting data management across the scientific lifecycle, and is now an open-source development project.
 
-### The ICAT Infrastructure
-
-An integrated approach has been taken to provide data infrastructure within STFC. A core component is an information catalogue - the ICAT - which collates metadata about the experiment from different stages of the experimental lifecycle by integrating with a number of different systems supporting that stage, from proposal to publication. Thus systems which could be integrated across the lifecycle would include:
-
-* Proposals. Once awarded beam-time at a facility, an entry is created in ICAT that describes the proposed experiment. Thus we can collect descriptive information on who is doing what experiment for what purpose.
-* Experiment. Data collected from the experiment will be indexed by ICAT \(with additional experimental conditions\) and made available to the experimental team
-* Analysed Data. The end user will have the capability to upload any desired analysed data and associate it with their experiments.
-* Publication. Using ICAT the scientist is also able to associate publications with the experiment and reference data from publications.
-
-  The ICAT collects metadata across the experimental lifecycle as automatically as is possible by interacting with a number of other associated systems almost all of which already exist as part of the operating environment. Thus core metadata on teh experiment context is collected from the proposal system, information about parameters from data acquisition, etc. Thus the system is efficiently propagating metadata through the system, maintaining accuracy and completeness, and negating the need for retyping. There are a number of features which ICAT needs to accommodate to support its user community.
-
-* Secure distributed access to data. The user community for facilities is distributed across institutions who wish to access their data when they return to their home institutions. Therefore, ICAT provides a web-based front-end accessible from the scientist's desktop, which allows secure access to their data, while enabling the setting of appropriate access conditions so that it can be shared across experimental teams or collaborators.
-
-* Flexible data searching. Data can be annotated with appropriate tags and keywords, most of which come from the proposal system. These annotations are used to search for data in a meaningful way, via a taxonomy of scientific terms, via resources \(instruments, beam-lines\) provided at facilities, or through sample and experimental parameters, such as temperature, pressure etc
-
-* A scalable architecture. The ICAT infrastructure needs to be able to be scaled to allow rapid access to large volumes of data both in absolute size and also in the number of discrete data files which are indexed.
-* An extensible and flexible architecture. The system should be adaptable to local requirements at different facilities and to be tailored to the needs of particular user communities. ICAT has adopted a modular open source approach which allows code to be shared and adapted.
-* Integration with analysis tools. Data searching and access should be integrated with data analysis and visualisation tools to further process the data. ICAT allows data access to end user programs via its API.
-* Access to high performance resources. In order to analyse the large quantities of data, the ICAT should provide seamless access to high-performance resources, such as computing clusters and large-scale data storage.
-* Linking to other scientific outputs. Scientific data is part of a larger science lifecycle which includes other outputs, particularly formal publications, but also more informal forms of scientific communication, such as laboratory notebooks, blogs and newsgroups. ICAT should provide a means to link data with publications.
-* Data Policy. Facilities are developing data policies to formalise access to data for the user community. While publically funded data is in principle publically available, in practice it is made available to investigators initially for their research. For example within ISIS, ICAT enforces a 3 year embargo on data \(an additional year can be requested\), and commercially funded data is never made public. The Instrument Scientists can access all data from the beam-line they are responsible for. Calibration data is public, but secondary analysis data that involves additional IPR is private for perpetuity unless explicitly shared by user
-
-  The core component of the ICAT tool set, the ICAT itself, is a database storing the metadata associated with scientific resources. This provides a well defined API that provides a uniform interface to experimental data and a mechanism to link all aspects of research from proposal through to publication. This is published as a web-service interface and allows bindings which could be in any languages so that end user applications can interact with the ICAT.
-
-  A web-based front end \("TopCat"\) provides an alternative standard interface allowing browsing and searching of the catalogue and access to the experimental data, accessible from within the facility and at their home institution.
-
-  The the ICAT interfaces to the data storage system, for example to a virtualised file store on a mass-storage system; this can be tailored to other storage systems - this functionality has been separeated out into the ICAT Data Service \(IDS\). There are also interfaces to the user database and single sign-on systems which control user identification and authentication within the facility. The ICAT can also be linked to other systems which supply it with data, especially the proposal system, initiating investigations. Further interfaces to e-Science services such as high-performance computing or visualisation, to the publications system cross-linking with publication data and software libraries can also be added.
-
-## Conclusions on the Information Model
-
-The information model which has been developed within the CSMD has proven a robust and tested model for capturing information about experiments and the associated raw data. It is simple and reasonably generic, while allowing sufficient detail to provide users with a manageable search and discovery interface.
 

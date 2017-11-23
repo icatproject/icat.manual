@@ -23,7 +23,7 @@ The core entities of the CSMD for a study are summarised as follows.
 * Parameter. Parameters describe measureable quantities associated with the investigation, such as temperature, pressure, or scattering angle, describing either the parameters of the sample, the environment the data was collected in, or the parameters being measured. Parameters can be associated at different levels, such as the sample, dataset or the datafile, and have names, units, values, and allowable data ranges.
 * Authorisation: the CSMD can associate conditions on investigations and data sets, so that user specified access conditions can be specified. Thus the authorisation entity can record which user in which role can access data on specific investigations.
 
-### 
+For more detail on the CSMD see the CSMD Information Page \(http://icatproject-contrib.github.io/CSMD/\).
 
 
 

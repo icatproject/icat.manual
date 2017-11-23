@@ -23,52 +23,7 @@ The core entities of the CSMD for a study are summarised as follows.
 * Parameter. Parameters describe measureable quantities associated with the investigation, such as temperature, pressure, or scattering angle, describing either the parameters of the sample, the environment the data was collected in, or the parameters being measured. Parameters can be associated at different levels, such as the sample, dataset or the datafile, and have names, units, values, and allowable data ranges.
 * Authorisation: the CSMD can associate conditions on investigations and data sets, so that user specified access conditions can be specified. Thus the authorisation entity can record which user in which role can access data on specific investigations.
 
-### The Metadata Structure
-
-The metadata within the general structure is laid in a series of classes and subclasses. We do not describe the whole model in detail for reasons of space, but rather select some areas of particular interest.
-
-#### Modelling Scientific Activity
-
-The data model describes scientific activities at different levels: the main unit is the Study, which optionally can lie in a context of a science research programme, governed by policies. Each study has an Investigator that describes who is undertaking the activity, and the Study Information that captures the details of this particular study. Studies include particular scientific investigations.
-
-* Policy: the company or government policies which initiate Programmes of work.
-* Programmes: related studies that have a common theme which are usually funded and resourced directly or with an intermediary organisation under the rubric of the programme.
-* Studies: Studies investigate some aspect of science and have a Principal Investigator and/or institution, co-investigators and some specific purpose. e.g. an application for time on a facility such as ISIS.
-* Investigations are studies or parts of studies that have links directly to data holdings, as described above. More specific types of investigations may include the following.
-* Experiments: investigations into the physical behaviour of the environment usually to test a hypothesis, typically involving an instrument operating under some instrumental settings and environmental conditions, and generating data sets in files. E.g. the subjection of a material to bombardment by X-Rays of known frequency recording the resulting diffraction pattern.
-* Measurements: investigations that record the state of some aspect of the environment over a sequence of points in time and space, using some passive detector, e.g. the measurement of temperature at a point on the earth surface taken hourly using a thermometer of known accuracy.
-* Simulations: investigations that test a model of part of the world, and a computer simulation of the state space of that model. This will typically involve some simulation package with some initial parameters, and generate a dataset representing the result of the simulation.
-
-  Each investigation has a particular purpose and uses a particular set up of instruments or computer systems.
-
-  Classes within the model have several fields. For example, investigator has a name, address, status, institution and role within the study. For reasons of space we do not provide a complete description of all the available classes within the metadata model. For illustration, we consider the Study class. Within a Study, there are several fields, as in table below.
-
-| ID | The key of the Study |
-| :--- | :--- |
-| NAME | Unique name given to the study. |
-| PURPOSE | Description of purpose of study, an abstract of why these investigations are brought together. |
-| STATUS | Ongoing or complete, as there could be additional investigations planned in the future which could be applicable to this study. |
-| RELATED MATERIAL | Information related to the study. This could be related studies in other facilities, or on similar samples. |
-| STUDY\_CREATION\_DATE | When the study was created. |
-| STUDY\_MANAGER | The user who has created the study; this may not be the investigator, but rather a member of the facilities staff. |
-
-Further links in the study relate to the specific investigation. An investigation has fields for the investigators involved, together with their role and their contact details, and also references to the facility and instrument used to capture the data.
-
-#### Modelling scientific data holdings
-
-Investigations are characterised by the generation of a particular set of data on the analysis of a sample, initially raw data, but then further data representing analysed data. Other data may also be associated with the investigation, such as calibration data. Each data set may have different parameters set. The model of data holdings used in the model needs to accommodate this complexity.
-
-In CSMD each investigation is associated with metadata describing the data holding associated with that investigation. The metadata format given here is designed for use on general scientific data holdings, describing data logically which may be physically moved around. Thus, data holdings have three layers: the experiment, the logical data, and the physical files. Data holdings are considered as hierarchies, with data sets, which can contain sub-datasets which can be broken down into individual logical data files, generalised in the model as Atomic Data Objects \(ADOs\), as they may not be held in file store, but in for example databases. At each level of granularity, metadata can be provided giving representation information \(as in OAIS\) at the appropriate level of the data holding. At each stage of the data collection process, data is stored in a set of physical files with a physical location.
-
-It is possible that there may be different versions of the data sets in the holding. In a general data portal, all stages of the process should be stored and made available as reviewers of the data holdings may wish to determine the nature of the analysis performed, and other scientist may wish to use the raw data to perform different analyses. Thus type markers \('raw', 'intermediate', 'final'\) need to be kept with data sets and ADOs and relationships between them recorded.
-
-The model distinguishes between the logical data holding, describing the data objects and their structural hierarchy, and the data location. The data location provides a mapping between the identifiers used in the data definition component of the metadata model, and the actual URL's of the files. This can provide facilities for describing mirror location for the whole structure, and also for individual files.
-
-#### Parameters
-
-Parameters can be associated with data holdings, data sets, or ADOs. The same metadata item is used to represent either experimental conditions and measured items stored as data points in the data collection, but are distinguished via a parameter type qualifier \('fixed' or 'measured'\). Each parameter has a set of fields describing its name \(e.g. temperature, pressure\), its value \(if fixed in as an input parameter\), the units of measurement used to qualify the data points, the range of values over-which a parameter can take and the error margin expected on the value.
-
-## Reference implementation
+### Reference implementation
 
 The ICAT system for cataloguing facility-generated experimental data has been in development within STFC over several years for in use at both the ISIS Facility and the Diamond Light Source. It forms part of an infrastructure supporting data management across the scientific lifecycle, and is now an open-source development project.
 
@@ -86,6 +41,7 @@ An integrated approach has been taken to provide data infrastructure within STFC
 * Secure distributed access to data. The user community for facilities is distributed across institutions who wish to access their data when they return to their home institutions. Therefore, ICAT provides a web-based front-end accessible from the scientist's desktop, which allows secure access to their data, while enabling the setting of appropriate access conditions so that it can be shared across experimental teams or collaborators.
 
 * Flexible data searching. Data can be annotated with appropriate tags and keywords, most of which come from the proposal system. These annotations are used to search for data in a meaningful way, via a taxonomy of scientific terms, via resources \(instruments, beam-lines\) provided at facilities, or through sample and experimental parameters, such as temperature, pressure etc
+
 * A scalable architecture. The ICAT infrastructure needs to be able to be scaled to allow rapid access to large volumes of data both in absolute size and also in the number of discrete data files which are indexed.
 * An extensible and flexible architecture. The system should be adaptable to local requirements at different facilities and to be tailored to the needs of particular user communities. ICAT has adopted a modular open source approach which allows code to be shared and adapted.
 * Integration with analysis tools. Data searching and access should be integrated with data analysis and visualisation tools to further process the data. ICAT allows data access to end user programs via its API.

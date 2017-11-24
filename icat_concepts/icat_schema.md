@@ -31,8 +31,12 @@ The complete schema for each version of ICAT may be seen. This description of th
 * id – a unique identifier for that entity within the set
 * createId – the username of the creator of the entity
 * createTime – when the entity was created
-* modId – the username of the last modifier of the entity
+* modId – the username of the last modifier of the entity
 * modTime – when the entity was last modified
 
 All of these attributes are set by the system but can all be read and used in queries.
+
+
+
+
 

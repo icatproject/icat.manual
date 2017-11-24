@@ -19,6 +19,7 @@
   * [The ICAT Architecture](./icat_concepts/icat_architecture.md)
   * [The ICAT Model](./icat_concepts/icat_model.md)
   * [The ICAT Schema](./icat_concepts/icat_schema.md)
+  * Full Schema v4.8.0
 * [Installation](./installation/README.md)
   * [Apache](installation/apache.md)
   * [Database](installation/database.md)

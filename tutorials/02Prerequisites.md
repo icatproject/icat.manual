@@ -41,10 +41,11 @@ Edit the MySQL configuration file at `/etc/my.cnf`. In the `[mysqld]` section, s
 default_storage_engine = InnoDB
 ```
 
-Start the MariaDB database then run `mysql-secure-installation` to make it more secure. Enter the details when prompted. In this tutorial, we assume the database root user has the password 'pw'.
+Start the MariaDB database, enable to run on boot then run `mysql-secure-installation` to make it more secure. Enter the details when prompted. In this tutorial, we assume the database root user has the password 'pw'.
 
 ```Shell
 [root@localhost ~]# systemctl start mariadb.service
+[root@localhost ~]# systemctl enable mariadb.service
 [root@localhost ~]# mysql_secure_installation
 ```
 

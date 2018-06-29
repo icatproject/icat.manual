@@ -1,7 +1,7 @@
 | Component   | Version   | Installation                                                        | Documentation                                                               |
 | ---------   | -------   | ------------                                                        | -------------                                                               |
-| VirtualBox  | 5.1       | [Installation Guide](https://www.virtualbox.org/manual/ch02.html)   | [Official Documentation](https://www.virtualbox.org/manual/UserManual.html) |
-| Vagrant     | 1.9.5     | [Installation Guide](https://www.vagrantup.com/docs/installation/)  | [Official Documentation](https://www.vagrantup.com/docs/index.html)         |
+| VirtualBox  | 5.2.12    | [Installation Guide](https://www.virtualbox.org/manual/ch02.html)   | [Official Documentation](https://www.virtualbox.org/manual/UserManual.html) |
+| Vagrant     | 2.1.2     | [Installation Guide](https://www.vagrantup.com/docs/installation/)  | [Official Documentation](https://www.vagrantup.com/docs/index.html)         |
 
 Chapter 01: Vagrant Setup (Optional)
 ===================================
@@ -18,7 +18,7 @@ Install VirtualBox and Vagrant
 5. Run the following command to initialise your VM:
 
 ```Shell
-vagrant init thinktainer/centos-6_6-x64
+vagrant init centos/7
 ```
 This will create a Vagrant configuration file called `Vagrantfile`. Open the file in an editor. Between the `Vagrant.configure...` line and `end`, add the line:
 

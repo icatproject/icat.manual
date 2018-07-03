@@ -7,7 +7,7 @@ Chapter 03: Installing Payara
 
 Overview
 --------
-The Payara Application Server is installed by simply downloading a zip file and uncompressing it. The server is able to host multiple domains so we need to choose a domain name for our ICAT installation. In this tutorial, we will use the default domain name `domain1`. The files for the domain are stored under `payara41/glassfish/<domain_name>`, in our case `payara41/glassfish/localhost`.
+The Payara Application Server is installed by simply downloading a zip file and uncompressing it. The server is able to host multiple domains so we need to choose a domain name for our ICAT installation. In this tutorial, we will use the default domain name `domain1`. The files for the domain are stored under `payara41/glassfish/<domain_name>`, in our case `payara41/glassfish/domain1`.
 
 **NB: the commands on this page should be entered as the `glassfish` user**
 
@@ -20,6 +20,7 @@ mkdir downloads install scripts
 
 Download and unzip Payara
 -------------------------
+
 ```Shell
 cd downloads/
 curl -O 'http://search.maven.org/remotecontent?filepath=fish/payara/blue/distributions/payara/4.1.2.181/payara-4.1.2.181.zip'
@@ -31,24 +32,28 @@ Configure Payara
 ----------------
 
 Add the Payara directory to the path so we have access to the `asadmin` program which is used to administer the Payara application server. This step must be completed before running the script below as it uses the `asadmin` program.
+
 ```Shell
 echo 'export PATH=$PATH:$HOME/payara41/bin' >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
-Check that it works
+Check that it works:
+
 ```Shell
 which asadmin
 ```
-*~/payara41/bin/asadmin*
+outputs: *~/payara41/bin/asadmin*
 
 Download a script to configure Payara for ICAT
-```
+
+```Shell
 cd scripts/
 curl -O https://icatproject.org/misc/scripts/setup-glassfish.py
 cd
 ```
 
 Run the setup script. We pass it 3 options: the domain name, the maximum amount of memory to use and the password for the root account of the MariaDB database. So for a domain name of `domain1`, with a maximum memory usage of 75% and a root MariaDB account password of 'pw', run:
+
 ```Shell
 python scripts/setup-glassfish.py domain1 75% pw
 ```
@@ -57,18 +62,20 @@ Configure Payara for MariaDB
 ----------------------------
 
 We need the MySQL Connector library to enable ICAT to access the MariaDB database. This was installed to the system in the previous chapter. We need to copy the jar file to the correct directory - the `domain1` domain of the Payara server - then restart Payara so that it is found.
+
 ```Shell
 cp /usr/share/java/mysql-connector-java-5.1.17.jar $HOME/payara41/glassfish/domains/domain1/lib/ext/
 asadmin stop-domain
 asadmin start-domain
 ```
 
-*N.B. Note the last 2 commands which restart Payara It is often helpful to restart Payara when troubleshooting a problem with the software or installation process.*
+*N.B. Note the last 2 commands which restart Payara. It is often helpful to restart Payara when troubleshooting a problem with the software or installation process.*
 
 Troubleshooting: Finding the Logs
 ---------------------------------
 
 If you need to troubleshoot a problem, you can find the Payara logs at:
+
 ```Shell
 /home/glassfish/payara41/glassfish/domains/domain1/logs/server.log
 ```

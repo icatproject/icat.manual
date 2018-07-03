@@ -23,7 +23,7 @@ Download and unzip Payara
 
 ```Shell
 cd downloads/
-curl -O 'http://search.maven.org/remotecontent?filepath=fish/payara/blue/distributions/payara/4.1.2.181/payara-4.1.2.181.zip'
+curl -O 'http://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.181/payara-4.1.2.181.zip'
 cd ~
 unzip downloads/payara-4.1.2.181.zip
 ```

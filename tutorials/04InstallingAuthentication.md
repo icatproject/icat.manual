@@ -75,6 +75,8 @@ to
         </root>
 ```
 
+Also note in this file that the log file location is set to `${HOME}/logs/authn_simple.log`.
+
 Install the authentication plugin
 ---------------------------------
 
@@ -82,4 +84,16 @@ Installing most ICAT components consists running `./setup install`. We use the `
 
 ```Shell
 ./setup -vv install
+```
+
+Check that it is running
+------------------------
+
+```Shell
+asadmin list-applications
+```
+should output:
+```
+authn.simple-2.0.0  <ejb, web>
+Command list-applications executed successfully.
 ```

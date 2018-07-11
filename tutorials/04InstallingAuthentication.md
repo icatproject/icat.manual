@@ -8,7 +8,7 @@ Chapter 04: Installing an Authentication Plugin
 Overview
 --------
 
-ICAT relies on plugins to handle different methods of authenticating users to the system. There are 4 plugins available: an anonymous plugin allowing anonymous users; a simple plugin allowing a list of usernames and passwords to be defined at install time; an LDAP plugin to connect to an LDAP server and a database plugin which re-uses the relational database to store the usernames and passwords. In this tutorial, we will use the simple authentication plugin. However, it is worth noting that most facilities who use the ICAT software write their own plugin. 
+ICAT relies on plugins to handle different methods of authenticating users to the system. There are 4 plugins available: an anonymous plugin allowing anonymous users; a simple plugin allowing a list of usernames and passwords to be defined at install time; an LDAP plugin to connect to an LDAP server and a database plugin which re-uses the relational database to store the usernames and passwords. In this tutorial, we will use the simple authentication plugin. However, it is worth noting that most facilities who use the ICAT software customize the authentication process.
 
 **NB: the commands on this page should be entered as the `glassfish` user**
 
@@ -25,7 +25,7 @@ unzip ~/downloads/authn.simple-2.0.0-distro.zip
 Configure the authentication plugin
 -----------------------------------
 
-Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the GlassFish installation. In this tutorial it is `/home/glassfish/payara41`. Finally we set the port for communication with the GlassFish server.
+Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara41`. Finally we set the port for communication with the Payara server.
 
 ```INI
 #Glassfish
@@ -80,7 +80,7 @@ Also note in this file that the log file location is set to `${HOME}/logs/authn_
 Install the authentication plugin
 ---------------------------------
 
-Installing most ICAT components consists running `./setup install`. We use the `-vv` flag here to turn on extra verbosity so that we can see what the setup script is doing.
+Installing most ICAT components consists of running `./setup install`. We use the `-vv` flag here to turn on extra verbosity so that we can see what the setup script is doing.
 
 ```Shell
 ./setup -vv install
@@ -96,4 +96,18 @@ should output:
 ```
 authn.simple-2.0.0  <ejb, web>
 Command list-applications executed successfully.
+```
+
+Check access from your browser
+------------------------------
+
+You can check that the plugin is accessible from your browser. You will have to click through to accept the connection to an untrusted site.
+
+If you have followed the recommended Vagrant set up, then port `18181` on your host machine will be  mapped to port `8181` on the VM.
+
+(https://localhost:18181/authn.simple/version)
+
+will return:
+```JSON
+{"version":"2.0.0"}
 ```

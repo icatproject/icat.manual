@@ -34,7 +34,7 @@ Configure Payara
 Add the Payara directory to the path so we have access to the `asadmin` program which is used to administer the Payara application server. This step must be completed before running the script below as it uses the `asadmin` program.
 
 ```Shell
-echo 'export PATH=$PATH:$HOME/payara41/bin' >> $HOME/.bashrc
+echo 'export PATH=$HOME/payara41/bin:$PATH' >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
 Check that it works:
@@ -70,6 +70,15 @@ asadmin start-domain
 ```
 
 *N.B. Note the last 2 commands which restart Payara. It is often helpful to restart Payara when troubleshooting a problem with the software or installation process.*
+
+Check access from your browser
+------------------------------
+
+You can check that Payara is accessible from your browser by loading the admin page. There is no need to log in - just check that the page loads. You will have to click through to accept the connection to an untrusted site as the default installation creates a self-signed certificate which is not trusted by your browser.
+
+If you have followed the recommended Vagrant set up, then port `14848` on your host machine will be  mapped to port `4848` on the VM.
+
+(https://localhost:14848)
 
 Troubleshooting: Finding the Logs
 ---------------------------------

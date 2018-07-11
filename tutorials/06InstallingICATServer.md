@@ -46,7 +46,11 @@ echo 'export PATH=$PATH:/home/glassfish/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-There are a lot of parameters for the ICAT Server but we only need to change a few. Copy the `run.properties.example` file to `run.properties` and open it in an editor. Set the `rootUserNames` parameter to `simple/root` - that is the `root` username configured using the `simple` authentication mechanism. Set `authn.list` to `simple` - we are only using the simple authentication plugin in this tutorial. Add `authn.simple.friendly = Simple` below the `authn.simple.url`. These tell ICAT where to find the `simple` authentication plugin and what to call it. Finally, set the `lucene.directory` parameter to the directory created before: `/home/glassfish/data/lucene`.
+There are a lot of parameters for the ICAT Server but we only need to change a few. Copy the `run.properties.example` file to `run.properties` and open it in an editor.
+* Set the `rootUserNames` parameter to `simple/root` - that is the `root` username configured using the `simple` authentication mechanism.
+* Set `authn.list` to `simple` - we are only using the simple authentication plugin in this tutorial.
+* Add `authn.simple.friendly = Simple` below the `authn.simple.url`. These tell ICAT where to find the `simple` authentication plugin and what to call it.
+* Finally, set the `lucene.directory` parameter to the directory created before: `/home/glassfish/data/lucene`.
 
 ```INI
 # Real comments in this file are marked with '#' whereas commented out lines
@@ -155,7 +159,7 @@ So for this tutorial, the values would be:
 testicat https://localhost:8181 simple username root password pw
 ```
 and the output would look like this (ignoring a warning about certificates):
-```Shell
+```
 ICAT version 4.9.1
 Logged in as simple/root with 119.996166667 minutes to go
 Login, search, create, delete and logout operations were all successful.
@@ -164,7 +168,7 @@ Login, search, create, delete and logout operations were all successful.
 Check access from your browser
 ------------------------------
 
-You can check that the ICAT Server is running in your browser. As before, you will have to click through to accept the connection to an untrusted site. With port `18181` on your host machine mapped to port `8181` on the VM:
+You can check that the ICAT Server is running in your browser. If you have not done so already, you may have to click through to accept the connection to an untrusted site. With port `18181` on your host machine mapped to port `8181` on the VM:
 
 (https://localhost:18181/icat/version)
 

@@ -1,6 +1,6 @@
 | Component         | Version | Installation                                                                                      | Documentation |
 | ---------         | ------- | ------------                                                                                      | ------------- |
-| ids.storage_file  | 1.3.3   | [Installation Guide](https://repo.icatproject.org/site/ids/storage_file/1.3.3/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service) |
+| ids.storage_file  | 1.4.1   | [Installation Guide](https://repo.icatproject.org/site/ids/storage_file/1.4.1/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service) |
 
 Chapter 06: Install a Storage Plugin for the ICAT Data Service (IDS)
 ===================================================================
@@ -15,36 +15,21 @@ A storage plugin will define one or two locations to store the data files: `main
 Download and unzip
 ------------------
 ```Shell
-wget http://www.icatproject.org/mvn/repo/org/icatproject/ids.storage_file/1.3.3/ids.storage_file-1.3.3-distro.zip
-unzip ids.storage_file-1.3.3-distro.zip
+cd ~/downloads
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.1/ids.storage_file-1.4.1-distro.zip'
+cd ~/install
+unzip ~/downloads/ids.storage_file-1.4.1-distro.zip
 ```
 
 Configure the Storage Plugin
 ----------------------------
 
-First, we need to make directories to store the data files - one for `main` storage and one for `archive` storage. 
-```Shell
-mkdir -p /home/glassfish/icat/main
-mkdir -p /home/glassfish/icat/archive
-```
-
-Next we configure the plugin to find the data storage directories created above:
-
-In `ids.storage_file.main.properties`, set
-```INI
-dir=/home/glassfish/icat/main
-```
-In `ids.storage_file.archive.properties`, set
-```INI
-dir=/home/glassfish/icat/archive
-```
-
-In `ids.storage_file-setup.properties`, use the same settings as before:
+Change directory to the `ids.storage_file` directory. Create `setup.properties` and use the same settings as before:
 ```INI
 #Glassfish
-secure = false
+secure = true
 container = Glassfish
-home = /home/glassfish/glassfish4
+home = /home/glassfish/payara41
 port = 4848
 ```
 
@@ -54,3 +39,5 @@ As before:
 ```Shell
 ./setup -vv install
 ```
+
+At the time of writing, the plugin does not create any logs. There is an open issue for this [here](https://github.com/icatproject/ids.server/issues/76).

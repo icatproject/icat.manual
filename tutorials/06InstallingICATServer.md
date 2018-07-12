@@ -145,6 +145,20 @@ As before:
 ./setup -vv install
 ```
 
+Check that it is running
+------------------------
+
+```Shell
+asadmin list-applications
+```
+should output:
+```
+authn.simple-2.0.0  <ejb, web>
+icat.server-4.9.1   <ejb, webservices, web>
+icat.lucene-1.1.0   <ejb, web>
+Command list-applications executed successfully.
+```
+
 Test the ICAT Server
 --------------------
 

@@ -56,7 +56,7 @@ The `ids.properties` file is quite large but most of the parameters can safely b
 
 ```INI
 # General properties
-icat.url = https://localhost:8181
+icat.url = https://localhost.localdomain:8181
 
 plugin.zipMapper.class = org.icatproject.ids.storage.ZipMapper
 

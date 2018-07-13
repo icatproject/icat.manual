@@ -71,10 +71,32 @@ asadmin start-domain
 
 *N.B. Note the last 2 commands which restart Payara. It is often helpful to restart Payara when troubleshooting a problem with the software or installation process.*
 
+Check the certificate
+---------------------
+
+In this tutorial, we will set up the components to communicate with each other securely. To do this, the hostname we give for a component must match the Common Name (CN) in the certificate provided by that component. Since all the components run inside Payara, they provide Payara's certificate. By default, Payara uses a self-signed certificate. It is beyond the scope of this tutorial to cover how to install certificates in Payara so we will use the self-signed certificate. You can find more information on installing certificates [here](https://icatproject.org/installation/glassfish/certificate/).
+
+To find the hostname of your VM:
+```Shell
+hostname
+```
+will output `localhost.localdomain` if you are using the Vagrant setup recommended in this tutorial.
+
+To find the Common Name (CN) of the certificate provided by Payara:
+```Shell
+echo | openssl s_client -connect localhost:8181  -showcerts 2> /dev/null | egrep 'subject|issuer'
+```
+will output:
+```
+subject=/C=UK/ST=Worcestershire/L=Great Malvern/O=Payara Foundation/OU=Payara/CN=localhost.localdomain
+issuer=/C=UK/ST=Worcestershire/L=Great Malvern/O=Payara Foundation/OU=Payara/CN=localhost.localdomain
+```
+if you have followed the Vagrant setup.
+
 Check access from your browser
 ------------------------------
 
-You can check that Payara is accessible from your browser by loading the admin page. There is no need to log in - just check that the page loads. You will have to click through to accept the connection to an untrusted site as the default installation creates a self-signed certificate which is not trusted by your browser.
+You can check that Payara is accessible from your browser by loading the admin page. There is no need to log in - just check that the page loads. You will have to click through to accept the connection to an untrusted site as the self-signed certificate is not trusted by your browser.
 
 If you have followed the recommended Vagrant set up, then port `14848` on your host machine will be  mapped to port `4848` on the VM.
 

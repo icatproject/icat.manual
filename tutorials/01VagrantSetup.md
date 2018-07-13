@@ -23,7 +23,9 @@ vagrant init centos/7
 This will create a Vagrant configuration file called `Vagrantfile`. Open the file in an editor. Between the `Vagrant.configure...` line and `end`, add the line:
 
 ```Ruby
-config.vm.network "forwarded_port", guest: 8080, host: 8080
+config.vm.network "forwarded_port", guest: 8080, host: 18080
+config.vm.network "forwarded_port", guest: 8181, host: 18181
+config.vm.network "forwarded_port", guest: 4848, host: 14848
 ```
 This setting will allow you to access the TopCat web interface at the end of this tutorial.
 

@@ -63,7 +63,7 @@ The script can take a while (10-20 minutes!) to load all the data.
 Check that ICAT now contains the data
 -------------------------------------
 
-We can use the cURL tool to access and query the (REST interface)[https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#home] of the ICAT Server. First we log in to get a session ID which we can use for subsequent API calls. To do this, we POST our credentials to (session)[https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#1024708709] endpoint.
+We can use the cURL tool to access and query the [REST interface](https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#home) of the ICAT Server. First we log in to get a session ID which we can use for subsequent API calls. To do this, we POST our credentials to [session](https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#1024708709) endpoint.
 
 ```Shell
 curl -k --data 'json={"plugin":"simple", "credentials": [{"username":"root"}, {"password": "pw"}]}' -w'\n' https://localhost:8181/icat/session
@@ -80,7 +80,7 @@ Let's store the `sessionId` in an environment variable to make the future querie
 export ICAT_SESSION=1c7a8fe1-43f2-4fb3-9692-2425a7d36738
 ```
 
-Once we have a `sessionId`, we can use it to send queries to the (jpql)[https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#-1766420604] endpoint. (JPQL)[https://docs.oracle.com/javaee/7/tutorial/persistence-querylanguage.htm] - Java Persistence Query Language - is a query language similar to SQL which can be used to query the ICAT database. We need to use cURL's `--data-urlencode` option to correctly encode spaces in our query.
+Once we have a `sessionId`, we can use it to send queries to the [jpql](https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#-1766420604) endpoint. [JPQL](https://docs.oracle.com/javaee/7/tutorial/persistence-querylanguage.htm) - Java Persistence Query Language - is a query language similar to SQL which can be used to query the ICAT database. We need to use cURL's `--data-urlencode` option to correctly encode spaces in our query.
 
 ```Shell
 curl -k --data "sessionId=$ICAT_SESSION" --data-urlencode 'query=SELECT f.name FROM Facility f' -w'\n' --get https://localhost:8181/icat/jpql
@@ -102,4 +102,4 @@ Count at least 5: [Datafile 20, dolore/ut/deserunt, 802], [Datafile 53, dolorem/
 
 ```
 
-You can find the ICAT Schema reference (here)[https://repo.icatproject.org/site/icat/server/4.9.1/schema.html] and experiment with some other queries. **Note: not all the schema entities and fields have data in this example.**
+You can find the ICAT Schema reference [here](https://repo.icatproject.org/site/icat/server/4.9.1/schema.html) and experiment with some other queries. **Note: not all the schema entities and fields have data in this example.**

@@ -2,7 +2,7 @@
 | ---------         | ------- | ------------                                                                                      | ------------- |
 | ids.storage_file  | 1.4.1   | [Installation Guide](https://repo.icatproject.org/site/ids/storage_file/1.4.1/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service) |
 
-Chapter 06: Install a Storage Plugin for the ICAT Data Service (IDS)
+Chapter 07: Install a Storage Plugin for the ICAT Data Service (IDS)
 ===================================================================
 
 Overview

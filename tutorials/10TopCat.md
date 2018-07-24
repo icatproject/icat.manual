@@ -2,7 +2,7 @@
 | --------- | ------- | ------------                                                                            | ------------- |
 | topcat    | 2.4.0   | [Installation Guide](https://repo.icatproject.org/site/topcat/2.4.0/installation.html)  | |
 
-Chapter 09: Install the TopCat Web Interface
+Chapter 10: Install the TopCat Web Interface
 ===========================================
 
 Overview

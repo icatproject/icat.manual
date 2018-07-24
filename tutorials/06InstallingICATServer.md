@@ -2,7 +2,7 @@
 | ---------   | ------- | ------------                                                                                | ------------- |
 | icat.server | 4.9.1   | [Installation Guide](https://repo.icatproject.org/site/icat/server/4.9.1/installation.html) | [Component Documentation](https://icatproject.org/user-documentation/icat-server/) |
 
-Chapter 05: Installing the ICAT Server
+Chapter 06: Installing the ICAT Server
 =====================================
 
 Overview

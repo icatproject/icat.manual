@@ -2,7 +2,7 @@
 | ---------   | ------- | ------------                                                                                | ------------- |
 | ids.server  | 1.9.0   | [Installation Guide](https://repo.icatproject.org/site/ids/server/1.9.0/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service/) |
 
-Chapter 07: Install the ICAT Data Service (IDS)
+Chapter 08: Install the ICAT Data Service (IDS)
 ==============================================
 
 Overview

@@ -22,7 +22,7 @@ Install Java
 ICAT requires at least JDK verion 1.8. Since ICAT is distributed online as a collection of .zip files, we will also need to install unzip.
 
 ```Shell
-[root@localhost ~]# yum install java-1.8.0-openjdk-headless unzip
+[root@localhost ~]# yum install java-1.8.0-openjdk-headless java-1.8.0-openjdk-devel unzip
 ```
 
 Install and configure MariaDB

@@ -45,7 +45,7 @@ port = 4848
 libraries=ids.storage_file*.jar
 ```
 
-The `ids.properties` file is quite large but most of the parameters can safely be left as their default values. For this tutorial, we only need to tell the IDS where to find the ICAT Server, who the privileged users are, and where to find and store its data.
+The `run.properties` file is quite large but most of the parameters can safely be left as their default values. For this tutorial, we only need to tell the IDS where to find the ICAT Server, who the privileged users are, and where to find and store its data.
 * Set `icat.url` to the location of the ICAT Server: `https://localhost:8181`.
 * Set the `plugin.main.dir` parameter to the point to the directory we created above: `/home/glassfish/data/main`.
 * Set the `cache.dir` parameter to the point to the directory we created above: `/home/glassfish/data/cache`.
@@ -63,7 +63,7 @@ plugin.zipMapper.class = org.icatproject.ids.storage.ZipMapper
 plugin.main.class = org.icatproject.ids.storage.MainFileStorage
 plugin.main.dir = /home/glassfish/data/main/
 
-cache.dir = /home/glassfish/icat/main/ids/cache
+cache.dir = /home/glassfish/data/cache
 preparedCount = 10000
 processQueueIntervalSeconds = 5
 rootUserNames = simple/root

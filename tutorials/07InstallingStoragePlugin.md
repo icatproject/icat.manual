@@ -33,6 +33,11 @@ home = /home/glassfish/payara41
 port = 4848
 ```
 
+Configure Logging
+-----------------
+
+At the time of writing, the plugin does not write to any log files, so there is no logging configuration. There is an open issue for this [here](https://github.com/icatproject/ids.server/issues/76).
+
 Install the Storage Plugin
 --------------------------
 As before:
@@ -40,4 +45,4 @@ As before:
 ./setup -vv install
 ```
 
-At the time of writing, the plugin does not create any logs. There is an open issue for this [here](https://github.com/icatproject/ids.server/issues/76).
+

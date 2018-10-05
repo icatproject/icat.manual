@@ -6,6 +6,7 @@ Chapter 11: Next Steps
   - [Anonymous authenticator](https://repo.icatproject.org/site/authn/anon/1.1.2/installation.html)
   - [Database authenticator](https://repo.icatproject.org/site/authn/db/2.0.0/installation.html)
   - [LDAP authenticator](https://repo.icatproject.org/site/authn/ldap/1.2.1/installation.html)
+- Configure authentication rules
 - Install more storage plugins (are there any more?)
 - Ingest some real data - is there a tutorial on how to do this?
 - Secure your system with a [certificate](https://icatproject.org/installation/glassfish/certificate/)

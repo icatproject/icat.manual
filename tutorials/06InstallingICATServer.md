@@ -84,7 +84,7 @@ authn.list = simple
 !authn.ldap.admin    = true
 !authn.ldap.friendly = Federal Id
 
-authn.simple.url      = https://localhost:8181
+authn.simple.url      = https://localhost.localdomain:8181
 authn.simple.friendly = Simple
 
 !authn.anon.url      = https://localhost:8181

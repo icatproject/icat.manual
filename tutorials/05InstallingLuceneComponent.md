@@ -84,7 +84,7 @@ Install the Lucene component
 ----------------------------
 
 ```Shell
-python setup -vv install
+./setup -vv install
 ```
 
 Check that it is running

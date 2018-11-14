@@ -64,7 +64,7 @@ Configure Payara for MariaDB
 We need the MySQL Connector library to enable ICAT to access the MariaDB database. This was installed to the system in the previous chapter. We need to copy the jar file to the correct directory - the `domain1` domain of the Payara server - then restart Payara so that it is found.
 
 ```Shell
-cp /usr/share/java/mysql-connector-java-5.1.17.jar $HOME/payara41/glassfish/domains/domain1/lib/ext/
+ln -s /usr/share/java/mysql-connector-java.jar $HOME/payara41/glassfish/domains/domain1/lib/ext/mysql-connector-java.jar
 asadmin stop-domain
 asadmin start-domain
 ```

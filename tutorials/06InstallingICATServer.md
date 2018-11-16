@@ -26,17 +26,17 @@ Configure the ICAT Server
 
 Change directory to the `icat.server` directory and open the `setup.properties` file. It has 2 sections. The first will be familiar from the previous chapters. The second section tells ICAT how to access the MariaDB database. The `db.driver` parameter specifies the location of the database access code - in the jar file which we copied earlier. The `db.url` parameter tells ICAT where to contact the database. In this case, it uses the jdbc-mysql connector to access the local machine on port 3306 (the default for MySQL/MariaDB) and uses the `icatdb` database. Finally, we specify the database username and password for ICAT to use. We created these in Chapter 2.
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41
 port = 4848
 
 # MySQL
-db.driver      = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-db.url         = jdbc:mysql://localhost:3306/icatdb
-db.username    = icatdbuser
-db.password    = $ICAT_DB_PASSWD
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+db.url = jdbc:mysql://localhost:3306/icatdb
+db.username = icatdbuser
+db.password = $ICAT_DB_PASSWD
 ```
 
 The ICAT install script installs a few executable scripts. We need to create a directory for them and add it to our `$PATH` variable.

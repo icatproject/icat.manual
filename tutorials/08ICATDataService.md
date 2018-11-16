@@ -35,14 +35,14 @@ mkdir -p ~/data/cache
 Change directory into `~/install/ids.server`. The `setup.properties` should be familiar from previous component installations. There is one addtional parameter: we set `libraries` to the name of the storage plugin jar file which we installed in the previous chapter. In the example below, there is a `*` which allows the jar file to be found regardless of version.
 
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41
 port = 4848
 
-#Any libraries needed (space separated list of jars in domain's lib/applibs
-libraries=ids.storage_file*.jar
+# Any libraries needed (space separated list of jars in domain's lib/applibs
+libraries = ids.storage_file*.jar
 ```
 
 The `run.properties` file is quite large but most of the parameters can safely be left as their default values. For this tutorial, we only need to tell the IDS where to find the ICAT Server, who the privileged users are, and where to find and store its data.

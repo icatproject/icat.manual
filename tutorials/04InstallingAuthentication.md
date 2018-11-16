@@ -28,7 +28,7 @@ Configure the authentication plugin
 Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara41`. Finally we set the port for communication with the Payara server.
 
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41

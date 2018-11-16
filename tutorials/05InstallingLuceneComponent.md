@@ -29,7 +29,7 @@ Change directory to `icat.lucene` and use your favourite editor to create the `s
 
 setup.properties:
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41

@@ -40,12 +40,13 @@ MariaDB [(none)]> QUIT;
 Change directory into `topcat` and copy the `topcat-setup.properties.example` file to `topcat-setup.properties`. The first two sections of the file will be familiar - we tell the TopCat installer where to find MariaDB and Payara. Make sure to change the username, password and database url. Leave the email settings for now as we do not need them for this tutorial.
 ```INI
 # MySQL
-db.target      = mysql
-db.driver      = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-db.url         = jdbc:mysql://localhost:3306/topcatdb
-db.username    = topcatdbuser
-db.password    = $TOPCAT_DB_PASSWD
+db.target = mysql
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+db.url = jdbc:mysql://localhost:3306/topcatdb
+db.username = topcatdbuser
+db.password = $TOPCAT_DB_PASSWD
 
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41

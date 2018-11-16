@@ -41,7 +41,7 @@ Edit the MySQL configuration file at `/etc/my.cnf`. In the `[mysqld]` section, s
 default_storage_engine = InnoDB
 ```
 
-Start the MariaDB database, enable to run on boot then run `mysql-secure-installation` to make it more secure. Enter the details when prompted. In this tutorial, we assume the database root user has the password 'pw'.
+Start the MariaDB database, enable to run on boot then run `mysql-secure-installation` to make it more secure. Enter the details when prompted. In this tutorial, we assume the database root user has the password '$DB_ROOT_PASSWD'.
 
 ```Shell
 [root@localhost ~]# systemctl start mariadb.service
@@ -49,11 +49,11 @@ Start the MariaDB database, enable to run on boot then run `mysql-secure-install
 [root@localhost ~]# mysql_secure_installation
 ```
 
-Create the database and user for ICAT to use. For this tutorial, the ICAT database is 'icatdb', the database user is 'icatdbuser' and the password is 'icatdbuserpw'.
+Create the database and user for ICAT to use. For this tutorial, the ICAT database is 'icatdb', the database user is 'icatdbuser' and the password is '$ICAT_DB_PASSWD'.
 ```Shell
-[root@localhost ~]# mysqladmin --user=root --password=pw create icatdb
-[root@localhost ~]# mysql --user=root --password=pw --execute="CREATE USER 'icatdbuser'@'localhost' IDENTIFIED BY 'icatdbuserpw';"
-[root@localhost ~]# mysql --user=root --password=pw --execute="GRANT ALL PRIVILEGES ON *.* TO 'icatdbuser'@'localhost';"
+[root@localhost ~]# mysqladmin --user=root --password=$DB_ROOT_PASSWD create icatdb
+[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="CREATE USER 'icatdbuser'@'localhost' IDENTIFIED BY '$ICAT_DB_PASSWD';"
+[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="GRANT ALL PRIVILEGES ON *.* TO 'icatdbuser'@'localhost';"
 ```
 
 Optionally install useful tools

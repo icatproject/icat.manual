@@ -55,7 +55,7 @@ curl -O 'https://raw.githubusercontent.com/icatproject-contrib/icat.ansible/mast
 The python-icat package comes with a script called `icatingest.py` which we can use with the file we just downloaded to ingest the test data. The script requires the URL of the ICAT SOAP interface, authentication credentials and the location of the data file to load.
 
 ```Shell
-icatingest.py --url 'https://localhost:8181/ICATService/ICAT?wsdl' --no-check-certificate --auth simple --user root --pass pw --format YAML --inputfile lils.yml
+icatingest.py --url 'https://localhost:8181/ICATService/ICAT?wsdl' --no-check-certificate --auth simple --user root --pass rootpw --format YAML --inputfile lils.yml
 ```
 
 The script can take a while (10-20 minutes!) to load all the data.
@@ -66,7 +66,7 @@ Check that ICAT now contains the data
 We can use the cURL tool to access and query the [REST interface](https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#home) of the ICAT Server. First we log in to get a session ID which we can use for subsequent API calls. To do this, we POST our credentials to [session](https://repo.icatproject.org/site/icat/server/4.9.1/miredot/index.html#1024708709) endpoint.
 
 ```Shell
-curl -k --data 'json={"plugin":"simple", "credentials": [{"username":"root"}, {"password": "pw"}]}' -w'\n' https://localhost:8181/icat/session
+curl -k --data 'json={"plugin":"simple", "credentials": [{"username":"root"}, {"password": "rootpw"}]}' -w'\n' https://localhost:8181/icat/session
 ```
 will output something similar to:
 ```JSON

@@ -36,7 +36,7 @@ port = 4848
 db.driver      = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 db.url         = jdbc:mysql://localhost:3306/icatdb
 db.username    = icatdbuser
-db.password    = icatdbuserpw
+db.password    = $ICAT_DB_PASSWD
 ```
 
 The ICAT install script installs a few executable scripts. We need to create a directory for them and add it to our `$PATH` variable.
@@ -170,7 +170,7 @@ testicat <url> <mnemonic> username <username> password <password>
 
 So for this tutorial, the values would be:
 ```Shell
-testicat https://localhost:8181 simple username root password pw
+testicat https://localhost:8181 simple username root password rootpw
 ```
 and the output would look like this (ignoring a warning about certificates):
 ```

@@ -25,10 +25,12 @@ unzip ~/downloads/topcat-2.4.0-distro.zip
 Configure the TopCat server
 ---------------------------
 
-Create a new database for the TopCat server to use:
+Create the database and user for the TopCat server to use. For this tutorial, the TopCat database is 'topcatdb', the database user is 'topcatdbuser' and the password is '$TOPCAT_DB_PASSWD'.
 
 ```Shell
-mysqladmin --user=root --password=pw create topcat
+[root@localhost ~]# mysqladmin --user=root --password=$DB_ROOT_PASSWD create topcatdb
+[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="CREATE USER 'topcatdbuser'@'localhost' IDENTIFIED BY '$TOPCAT_DB_PASSWD';"
+[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="GRANT ALL PRIVILEGES ON *.* TO 'topcatdbuser'@'localhost';"
 ```
 
 Change directory into `topcat` and copy the `topcat-setup.properties.example` file to `topcat-setup.properties`. The first two sections of the file will be familiar - we tell the TopCat installer where to find MariaDB and Payara. Make sure to change the username, password and database url. Leave the email settings for now as we do not need them for this tutorial.
@@ -36,9 +38,9 @@ Change directory into `topcat` and copy the `topcat-setup.properties.example` fi
 # MySQL
 db.target      = mysql
 db.driver      = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-db.url         = jdbc:mysql://localhost:3306/topcat
-db.username    = icatdbuser
-db.password    = icatdbuserpw
+db.url         = jdbc:mysql://localhost:3306/topcatdb
+db.username    = topcatdbuser
+db.password    = $TOPCAT_DB_PASSWD
 
 secure = true
 container = Glassfish

@@ -43,7 +43,7 @@ The `mechanism` option is used to label this authentication mechanism and is use
 #User list
 user.list = root ingest reader icatuser
 
-user.root.password = pw
+user.root.password = rootpw
 user.ingest.password = ingestpw
 user.reader.password = readerpw
 user.icatuser.password = icatuserpw

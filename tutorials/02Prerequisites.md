@@ -51,9 +51,13 @@ Start the MariaDB database, enable to run on boot then run `mysql-secure-install
 
 Create the database and user for ICAT to use. For this tutorial, the ICAT database is 'icatdb', the database user is 'icatdbuser' and the password is '$ICAT_DB_PASSWD'.
 ```Shell
-[root@localhost ~]# mysqladmin --user=root --password=$DB_ROOT_PASSWD create icatdb
-[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="CREATE USER 'icatdbuser'@'localhost' IDENTIFIED BY '$ICAT_DB_PASSWD';"
-[root@localhost ~]# mysql --user=root --password=$DB_ROOT_PASSWD --execute="GRANT ALL PRIVILEGES ON *.* TO 'icatdbuser'@'localhost';"
+[root@localhost ~]# mysql -u root -p -h localhost
+```
+```SQL
+MariaDB [(none)]> CREATE DATABASE icatdb;
+MariaDB [(none)]> CREATE USER 'icatdbuser'@'localhost' IDENTIFIED BY '$ICAT_DB_PASSWD';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON icatdb.* TO 'icatdbuser'@'localhost';
+MariaDB [(none)]> QUIT;
 ```
 
 Optionally install useful tools

@@ -39,18 +39,18 @@ MariaDB [(none)]> QUIT;
 
 Change directory into `topcat` and copy the `topcat-setup.properties.example` file to `topcat-setup.properties`. The first two sections of the file will be familiar - we tell the TopCat installer where to find MariaDB and Payara. Make sure to change the username, password and database url. Leave the email settings for now as we do not need them for this tutorial.
 ```INI
+# Glassfish
+secure = true
+container = Glassfish
+home = /home/glassfish/payara41
+port = 4848
+
 # MySQL
 db.target = mysql
 db.driver = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 db.url = jdbc:mysql://localhost:3306/topcatdb
 db.username = topcatdbuser
 db.password = $TOPCAT_DB_PASSWD
-
-# Glassfish
-secure = true
-container = Glassfish
-home = /home/glassfish/payara41
-port = 4848
 ```
 
 Copy the `topcat.properties.example` file to `topcat.properties`. We associate the `LILS` facility with the URLs of our services and the disable email alerts. We can leave the rest of the parameters to their defaults except the `adminUserNames`. We want to set the `adminUserNames` to the administration user account - in our case the `root` user configured in the `simple` authentication plugin.

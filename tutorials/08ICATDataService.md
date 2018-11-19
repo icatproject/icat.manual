@@ -46,7 +46,7 @@ libraries = ids.storage_file*.jar
 ```
 
 The `run.properties` file is quite large but most of the parameters can safely be left as their default values. For this tutorial, we only need to tell the IDS where to find the ICAT Server, who the privileged users are, and where to find and store its data.
-* Set `icat.url` to the location of the ICAT Server: `https://localhost:8181`.
+* Set the value of `icat.url` to the URL of the ICAT Server: `https://localhost.localdomain:8181`: The value of the FQDN in this URL must agree with the CN in the payara certificate that was generated during the installation of payara in [chapter 3](03InstallingGlassFish.md#check-the-certificate) of this tutorial and is obtained from the output of the `hostname` command. Here, the value of the FQDN is correct for a vagrant/virtualbox VM, which is `localhost.localdomain`.
 * Set the `plugin.main.dir` parameter to the point to the directory we created above: `/home/glassfish/data/main`.
 * Set the `cache.dir` parameter to the point to the directory we created above: `/home/glassfish/data/cache`.
 * Set the `rootUserNames` parameter to `simple/root` - the `root` user configured using the `simple` authentication mechanism. Users listed here are permitted to check the status of the whole IDS. More accounts could be listed here as a space-separated list.
@@ -61,7 +61,7 @@ icat.url = https://localhost.localdomain:8181
 plugin.zipMapper.class = org.icatproject.ids.storage.ZipMapper
 
 plugin.main.class = org.icatproject.ids.storage.MainFileStorage
-plugin.main.dir = /home/glassfish/data/main/
+plugin.main.dir = /home/glassfish/data/main
 
 cache.dir = /home/glassfish/data/cache
 preparedCount = 10000
@@ -74,7 +74,7 @@ maxIdsInQuery = 1000
 
 # Properties for archive storage
 plugin.archive.class = org.icatproject.ids.storage.ArchiveFileStorage
-plugin.archive.dir = /home/glassfish/data/archive/
+plugin.archive.dir = /home/glassfish/data/archive
 writeDelaySeconds = 60
 startArchivingLevel1024bytes = 5000000
 stopArchivingLevel1024bytes =  4000000

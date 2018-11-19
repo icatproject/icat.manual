@@ -50,6 +50,8 @@ There are a lot of parameters for the ICAT Server but we only need to change a f
 * Set the `rootUserNames` parameter to `simple/root` - that is the `root` username configured using the `simple` authentication mechanism.
 * Set `authn.list` to `simple` - we are only using the simple authentication plugin in this tutorial.
 * Add `authn.simple.friendly = Simple` below the `authn.simple.url`. These tell ICAT where to find the `simple` authentication plugin and what to call it.
+* Set the value of `authn.simple.url`: The value of the FQDN in this URL must agree with the CN in the payara certificate that was generated during the installation of payara in [chapter 3](03InstallingGlassFish.md#check-the-certificate) of this tutorial and is obtained from the output of the `hostname` command. Here, the value of the FQDN is correct for a vagrant/virtualbox VM, which is `localhost.localdomain`.
+* Set the value of `lucene.url`: The value of the FQDN in this URL must agree with the CN in the payara certificate that was generated during the installation of payara in [chapter 3](03InstallingGlassFish.md#check-the-certificate) of this tutorial and is obtained from the output of the `hostname` command. Here, the value of the FQDN is correct for a vagrant/virtualbox VM, which is `localhost.localdomain`.
 * Finally, set the `lucene.directory` parameter to the directory created before: `/home/glassfish/data/lucene`.
 
 ```INI
@@ -78,16 +80,16 @@ exportCacheSize = 50
 authn.list = simple
 
 # Parameters for each of the four plugins
-!authn.db.jndi       = java:global/authn.db-1.2.0/DB_Authenticator
+!authn.db.url = https://localhost:8181
 
-!authn.ldap.jndi     = java:global/authn.ldap-1.2.0/LDAP_Authenticator
-!authn.ldap.admin    = true
+!authn.ldap.url = https://localhost:8181
+!authn.ldap.admin = true
 !authn.ldap.friendly = Federal Id
 
-authn.simple.url      = https://localhost.localdomain:8181
+authn.simple.url = https://localhost.localdomain:8181
 authn.simple.friendly = Simple
 
-!authn.anon.url      = https://localhost:8181
+!authn.anon.url = https://localhost:8181
 !authn.anon.friendly = Anonymous
 
 # Notification setup

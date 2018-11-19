@@ -51,14 +51,38 @@ db.driver = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 db.url = jdbc:mysql://localhost:3306/topcatdb
 db.username = topcatdbuser
 db.password = $TOPCAT_DB_PASSWD
+
+# Email setup see http://docs.oracle.com/cd/E26576_01/doc.312/e24938/create-javamail-resource.htm#GSRFM00035
+mail.host = smtp.example.com
+mail.user = user@example.com
+mail.from = no-reply@example.com
+
+# See https://javamail.java.net/nonav/docs/api/ for list of properties
+mail.property = mail.smtp.port="25":mail.smtp.from="no-reply@example.com"
 ```
 
 Copy the `topcat.properties.example` file to `topcat.properties`. We associate the `LILS` facility with the URLs of our services and the disable email alerts. We can leave the rest of the parameters to their defaults except the `adminUserNames`. We want to set the `adminUserNames` to the administration user account - in our case the `root` user configured in the `simple` authentication plugin.
 ```INI
+# List of Facility names
+# These names will be used by Topcat over the REST API;
+# each facility name in topcat.json must contain a match in this list,
+# and each name must be mapped to ICAT / IDS urls.
+# Edit these values to match your installation.
+
 facility.list = LILS
 
 facility.LILS.icatUrl = https://localhost.localdomain:8181
 facility.LILS.idsUrl = https://localhost.localdomain:8181
+
+# Download transport URLs
+# topcat.json can specify one or more download transport types for each facility, egs "https", "globus";
+# each may have a distinct download URL (prefix). To specify the download URL for a specific facility
+# and transport type, set an appropriate property as below.
+# Note that the transport type will be set in requests from the Topcat Javascript application,
+# but the URL to specify here should be the IDS url that will be used in the Java clients;
+# so it may be that the Javascript transport type https should be mapped here to an
+# internal http URL.
+# If the property is not defined, Topcat will use the facility's idsUrl by default.
 
 facility.LILS.downloadType.http = http://localhost.localdomain:8080
 facility.LILS.downloadType.https = https://localhost.localdomain:8181
@@ -66,12 +90,32 @@ facility.LILS.downloadType.https = https://localhost.localdomain:8181
 # enable send email
 mail.enable = false
 
+# The email body message for https downloads. All subject tokens as above are available.
+mail.body.https = Hi ${userName},\n\nYour ${size} download ${fileName} has been prepared and is ready for download at ${downloadUrl}.\n\nThank you for using TopCAT.
+
+# The email body message for https downloads. All subject tokens as above are available.
+mail.body.globus = Hi ${userName}, \n\nYour ${size} Globus download ${fileName} is ready. Please see https:/example.com/#/globus-faq for more information on how to download using Globus.\n\nThank you for using TopCAT
+
+# The email body message for smartclient downloads. All subject tokens as above are available.
+mail.body.smartclient = Hi ${userName}, \n\nYour ${size} SmartClient download ${fileName} is ready. Please check your smartclient home directory for your files.\n\nThank you for using TopCAT
+
+# The email body message for SCARF downloads. All subject tokens as above are available.
+mail.body.scarf = Hi ${userName}, \n\nYour ${size} SCARF download ${fileName} is ready. Please see https:/example.com/#/scarf-faq for more information on how to download using SCARF.\n\nThank you for using TopCAT
+
+# The maximum number of datafiles for a getStatus call to the IDS for two level storage
 ids.getStatus.max = 100
+
+# The delay in seconds before polling starts. This delay is to gives the ids a chance to do its thing before we query it
 poll.delay = 600
+
+# The wait time in seconds between each poll to the IDS.
 poll.interval.wait = 600
 
+# A list of usernames that can use the admin REST API and Topcat admin user interface
 adminUserNames = simple/root
-maxCacheSize=100000
+
+# The maximum number objects that can be cached before pruning will take place
+maxCacheSize = 100000
 ```
 
 Configure the TopCat javascript client
@@ -88,7 +132,6 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
 
 ...
 
-    },
     "facilities": [
         {
             "name": "LILS",
@@ -102,7 +145,7 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
                 {
                     "title": "Simple",
                     "plugin": "simple"
-                },
+                }
             ],
             "downloadTransportTypes": [
                 {
@@ -112,13 +155,14 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
                 {
                     "type" : "https",
                     "idsUrl": "https://localhost.localdomain:18181"
-                },
-            ]
+                }
+            ],
 
 ...
 
         }
-    ]
+    ],
+    "plugins": []
 }
 ```
 

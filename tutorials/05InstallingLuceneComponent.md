@@ -40,9 +40,12 @@ The ICAT Lucene component (and others) is configured with a white-list of ip add
 
 Edit run.properties:
 ```INI
-directory     = /home/glassfish/data/lucene
+# Real comments in this file are marked with '#' whereas commented out lines
+# are marked with '!'
+
+directory = /home/glassfish/data/lucene
 commitSeconds = 5
-ip            = 127.0.0.1/32 0:0:0:0:0:0:0:1/128 10.0.0.1/8
+ip = 127.0.0.1/32 0:0:0:0:0:0:0:1/128 10.0.0.1/8
 ```
 **Note: IP addresses or ranges (ipv4 and ipv6) must be written in full followed by a '/' and the number of bits to consider. For example, you cannot use the abbreviated `::1` form for the ipv6 localhost address.**
 

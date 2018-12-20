@@ -30,14 +30,14 @@ Download and install python-icat
 As before, download and uncompress the package:
 ```Shell
 cd ~/downloads
-curl -O 'https://icatproject.org/misc/python-icat/download/python-icat-0.14.1.tar.gz'
+curl -O 'https://icatproject.org/misc/python-icat/download/python-icat-0.14.2.tar.gz'
 cd ~/install
-tar -xvzf ../downloads/python-icat-0.14.1.tar.gz
+tar -xvzf ../downloads/python-icat-0.14.2.tar.gz
 ```
 
 We have to build the package before installing it. We use `pip` to install it to the same location as above.
 ```Shell
-cd python-icat-0.14.1
+cd python-icat-0.14.2
 python setup.py build
 pip install --user .
 ```

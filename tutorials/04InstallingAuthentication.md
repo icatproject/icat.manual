@@ -28,7 +28,7 @@ Configure the authentication plugin
 Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara41`. Finally we set the port for communication with the Payara server.
 
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41
@@ -40,14 +40,34 @@ In the same directory, you will need to configure the list of usernames and pass
 The `mechanism` option is used to label this authentication mechanism and is useful when there is more than one authentication plugin installed. For example, if there was a user called `stuart` in the simple authenticator *and* the db authenticator, then we would refer to the account in the simple authenticator as `simple/stuart` and the account in the db authenticator as `db/stuart`. In this way we can be clear which account we mean. In some ICAT documentation, the `mechanism` is referred to as `mnemonic`. The two terms can be used interchangably.
 
 ```Shell
-#User list
+# Real comments in this file are marked with '#' whereas commented out lines
+# are marked with '!'
+
+# Space separated list of user names that this plugin authenticates.
 user.list = root ingest reader icatuser
 
-user.root.password = pw
+# Password for each user.  This may either be a clear text password or
+# a cryptographic hash of a password.
+#
+# A password hash must start with a '$' character and be in the same
+# form as found in the shadow(5) password file.  It may be created
+# using the mkpasswd(1) utility on Debian systems or grub-crypt on
+# Red Hat derived systems or the python crypt module.  The supported hash
+# algorithms are MD5, SHA-256, and SHA-512.
+#
+# A clear text password must not start with a '$' character.
+user.root.password = rootpw
 user.ingest.password = ingestpw
 user.reader.password = readerpw
 user.icatuser.password = icatuserpw
 
+# If access to the simple authentication should only be allowed from certain
+# IP addresses then provide a space separated list of allowed values. These
+# take the form of an IPV4 or IPV6 address followed by the number of bits
+# (starting from the most significant) to consider.
+!ip = 130.246.0.0/16   172.16.68.0/24
+
+# The mechanism label to appear before the user name. This may be omitted.
 mechanism = simple
 ```
 

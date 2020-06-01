@@ -52,10 +52,10 @@ curl -O https://icatproject.org/misc/scripts/setup-glassfish.py
 cd
 ```
 
-Run the setup script. We pass it 3 options: the domain name, the maximum amount of memory to use and the password for the root account of the MariaDB database. So for a domain name of `domain1`, with a maximum memory usage of 75% and a root MariaDB account password of 'pw', run:
+Run the setup script. We pass it 3 options: the domain name, the maximum amount of memory to use and the password for glassfish `asadmin` utility. So for a domain name of `domain1`, with a maximum memory usage of 75% and a glassfish `asadmin` password of '$ASADMIN_PASSWD', run:
 
 ```Shell
-python scripts/setup-glassfish.py domain1 75% pw
+python scripts/setup-glassfish.py domain1 75% $ASADMIN_PASSWD
 ```
 
 Configure Payara for MariaDB
@@ -64,7 +64,7 @@ Configure Payara for MariaDB
 We need the MySQL Connector library to enable ICAT to access the MariaDB database. This was installed to the system in the previous chapter. We need to copy the jar file to the correct directory - the `domain1` domain of the Payara server - then restart Payara so that it is found.
 
 ```Shell
-cp /usr/share/java/mysql-connector-java-5.1.17.jar $HOME/payara41/glassfish/domains/domain1/lib/ext/
+ln -s /usr/share/java/mysql-connector-java.jar $HOME/payara41/glassfish/domains/domain1/lib/ext/mysql-connector-java.jar
 asadmin stop-domain
 asadmin start-domain
 ```

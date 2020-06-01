@@ -26,7 +26,7 @@ Configure the Storage Plugin
 
 Change directory to the `ids.storage_file` directory. Create `setup.properties` and use the same settings as before:
 ```INI
-#Glassfish
+# Glassfish
 secure = true
 container = Glassfish
 home = /home/glassfish/payara41

@@ -48,7 +48,7 @@ Download a script to configure Payara for ICAT
 
 ```Shell
 cd scripts/
-curl -O https://icatproject.org/misc/scripts/setup-glassfish.py
+curl -O https://raw.githubusercontent.com/icatproject/icat.utils/master/src/main/scripts/setup-glassfish.py
 cd
 ```
 

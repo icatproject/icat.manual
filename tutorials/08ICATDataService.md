@@ -1,6 +1,6 @@
 | Component   | Version | Installation                                                                                | Documentation |
 | ---------   | ------- | ------------                                                                                | ------------- |
-| ids.server  | 1.9.0   | [Installation Guide](https://repo.icatproject.org/site/ids/server/1.9.0/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service/) |
+| ids.server  | 1.12.0   | [Installation Guide](https://repo.icatproject.org/site/ids/server/1.12.0/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service/) |
 
 Chapter 08: Install the ICAT Data Service (IDS)
 ==============================================
@@ -14,9 +14,9 @@ Install the IDS
 ---------------
 ```Shell
 cd ~/downloads
-curl -O 'https://repo.icatproject.org/repo/org/icatproject/ids.server/1.9.0/ids.server-1.9.0-distro.zip'
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.0/ids.server-1.12.0-distro.zip'
 cd ~/install
-unzip ~/downloads/ids.server-1.9.0-distro.zip
+unzip ~/downloads/ids.server-1.12.0-distro.zip
 ```
 
 Configure the IDS
@@ -38,7 +38,7 @@ Change directory into `~/install/ids.server`. The `setup.properties` should be f
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 
 #Any libraries needed (space separated list of jars in domain's lib/applibs
@@ -141,7 +141,7 @@ should output:
 authn.simple-2.0.0  <ejb, web>
 icat.server-4.9.1   <ejb, webservices, web>
 icat.lucene-1.1.0   <ejb, web>
-ids.server-1.9.0    <ejb, webservices, web>
+ids.server-1.12.0    <ejb, webservices, web>
 Command list-applications executed successfully.
 ```
 

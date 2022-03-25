@@ -30,14 +30,14 @@ Download and install python-icat
 As before, download and uncompress the package:
 ```Shell
 cd ~/downloads
-curl -O 'https://icatproject.org/misc/python-icat/download/python-icat-0.14.1.tar.gz'
+curl -O 'https://github.com/icatproject/python-icat/releases/download/0.21.0/python-icat-0.21.0.tar.gz'
 cd ~/install
-tar xvzf ../downloads/python-icat-0.14.1.tar.gz
+tar xvzf ../downloads/python-icat-0.21.0.tar.gz
 ```
 
 We have to build the package before installing it. We use `pip` to install it to the same location as above.
 ```Shell
-cd python-icat-0.14.1
+cd python-icat-0.21.0
 python setup.py build
 pip install --user .
 ```
@@ -102,4 +102,4 @@ Count at least 5: [Datafile 20, dolore/ut/deserunt, 802], [Datafile 53, dolorem/
 
 ```
 
-You can find the ICAT Schema reference [here](https://repo.icatproject.org/site/icat/server/4.9.1/schema.html) and experiment with some other queries. **Note: not all the schema entities and fields have data in this example.**
+You can find the ICAT Schema reference [here](https://repo.icatproject.org/site/icat/server/4.11.1/schema.html) and experiment with some other queries. **Note: not all the schema entities and fields have data in this example.**

@@ -1,6 +1,6 @@
 | Component     | Version | Installation                                                                                  | Documentation |
 | ---------     | ------- | ------------                                                                                  | ------------- |
-| icat.lucene  | 1.1.0   | [Installation Guide](https://repo.icatproject.org/site/icat/lucene/1.1.0/installation.html)  | [Component Documentation](https://repo.icatproject.org/site/icat/lucene/1.1.0/) |
+| icat.lucene  | 1.1.2   | [Installation Guide](https://repo.icatproject.org/site/icat/lucene/1.1.2/installation.html)  | [Component Documentation](https://repo.icatproject.org/site/icat/lucene/1.1.2/) |
 
 Chapter 05: Installing the Lucene Component
 ===========================================
@@ -17,9 +17,9 @@ Download and unzip
 
 ```Shell
 cd downloads/
-curl -O 'https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.0/icat.lucene-1.1.0-distro.zip'
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.2/icat.lucene-1.1.2-distro.zip'
 cd ~/install
-unzip ~/downloads/icat.lucene-1.1.0-distro.zip
+unzip ~/downloads/icat.lucene-1.1.2-distro.zip
 ```
 
 Configure the Lucene component
@@ -32,7 +32,7 @@ setup.properties:
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 ```
 
@@ -93,7 +93,7 @@ asadmin list-applications
 should output:
 ```
 authn.simple-2.0.0  <ejb, web>
-icat.lucene-1.1.0   <ejb, web>
+icat.lucene-1.1.2   <ejb, web>
 Command list-applications executed successfully.
 ```
 
@@ -112,7 +112,7 @@ curl -k -6 -g 'https://[::1]:8181/icat.lucene/version'
 ```
 should both return:
 ```JSON
-{"version":"1.1.0"}
+{"version":"1.1.2"}
 ```
 
 (curl options: `-k` tells curl to ignore untrusted certificates; `-4/-6` tells curl which protocol version to use; `[::1]` is the short version of the ipv6 local address; `-g` avoids confusing older versions of curl with ipv6 addresses.)
@@ -128,5 +128,5 @@ If you have followed the recommended Vagrant set up, then port `18181` on your h
 
 will return:
 ```JSON
-{"version":"1.1.0"}
+{"version":"1.1.2"}
 ```

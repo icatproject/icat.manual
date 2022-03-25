@@ -1,6 +1,6 @@
 | Component | Version | Installation                                                                            | Documentation |
 | --------- | ------- | ------------                                                                            | ------------- |
-| topcat    | 2.4.0   | [Installation Guide](https://repo.icatproject.org/site/topcat/2.4.0/installation.html)  | |
+| topcat    | 2.4.8   | [Installation Guide](https://repo.icatproject.org/site/topcat/2.4.8/installation.html)  | |
 
 Chapter 10: Install the TopCat Web Interface
 ===========================================
@@ -17,9 +17,9 @@ Download and unzip TopCat
 
 ```Shell
 cd ~/downloads
-curl -O https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.0/topcat-2.4.0-distro.zip
+curl -O https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.8/topcat-2.4.8-distro.zip
 cd ~/install
-unzip ~/downloads/topcat-2.4.0-distro.zip
+unzip ~/downloads/topcat-2.4.8-distro.zip
 ```
 
 Configure the TopCat server
@@ -42,7 +42,7 @@ db.password    = icatdbuserpw
 
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 ```
 

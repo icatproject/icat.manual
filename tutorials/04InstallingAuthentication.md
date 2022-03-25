@@ -1,6 +1,6 @@
 | Component     | Version | Installation                                                                                  | Documentation |
 | ---------     | ------- | ------------                                                                                  | ------------- |
-| authn.simple  | 2.0.0   | [Installation Guide](https://repo.icatproject.org/site/authn/simple/2.0.0/installation.html)  | [Component Documentation](https://repo.icatproject.org/site/authn/simple/2.0.0/index.html) |
+| authn.simple  | 2.0.1   | [Installation Guide](https://repo.icatproject.org/site/authn/simple/2.0.1/installation.html)  | [Component Documentation](https://repo.icatproject.org/site/authn/simple/2.0.1/index.html) |
 
 Chapter 04: Installing an Authentication Plugin
 ==============================================
@@ -17,21 +17,21 @@ Download and unzip
 
 ```Shell
 cd downloads/
-curl -O 'https://repo.icatproject.org/repo/org/icatproject/authn.simple/2.0.0/authn.simple-2.0.0-distro.zip'
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/authn.simple/2.0.1/authn.simple-2.0.1-distro.zip'
 cd ~/install
-unzip ~/downloads/authn.simple-2.0.0-distro.zip
+unzip ~/downloads/authn.simple-2.0.1-distro.zip
 ```
 
 Configure the authentication plugin
 -----------------------------------
 
-Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara41`. Finally we set the port for communication with the Payara server.
+Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara5.2022.1`. Finally we set the port for communication with the Payara server.
 
 ```INI
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 ```
 
@@ -94,7 +94,7 @@ asadmin list-applications
 ```
 should output:
 ```
-authn.simple-2.0.0  <ejb, web>
+authn.simple-2.0.1  <ejb, web>
 Command list-applications executed successfully.
 ```
 
@@ -109,5 +109,5 @@ If you have followed the recommended Vagrant set up, then port `18181` on your h
 
 will return:
 ```JSON
-{"version":"2.0.0"}
+{"version":"2.0.1"}
 ```

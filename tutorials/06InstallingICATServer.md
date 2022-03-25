@@ -1,6 +1,6 @@
 | Component   | Version | Installation                                                                                | Documentation |
 | ---------   | ------- | ------------                                                                                | ------------- |
-| icat.server | 4.9.1   | [Installation Guide](https://repo.icatproject.org/site/icat/server/4.9.1/installation.html) | [Component Documentation](https://icatproject.org/user-documentation/icat-server/) |
+| icat.server | 4.11.1   | [Installation Guide](https://repo.icatproject.org/site/icat/server/4.11.1/installation.html) | [Component Documentation](https://icatproject.org/user-documentation/icat-server/) |
 
 Chapter 06: Installing the ICAT Server
 =====================================
@@ -16,9 +16,9 @@ Download and unzip
 From your home directory, run:
 ```Shell
 cd ~/downloads/
-curl -O 'https://repo.icatproject.org/repo/org/icatproject/icat.server/4.9.1/icat.server-4.9.1-distro.zip'
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/icat.server/4.11.1/icat.server-4.11.1-distro.zip'
 cd ~/install
-unzip ~/downloads/icat.server-4.9.1-distro.zip
+unzip ~/downloads/icat.server-4.11.1-distro.zip
 ```
 
 Configure the ICAT Server
@@ -29,7 +29,7 @@ Change directory to the `icat.server` directory and open the `setup.properties` 
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 
 # MySQL
@@ -154,7 +154,7 @@ asadmin list-applications
 should output:
 ```
 authn.simple-2.0.0  <ejb, web>
-icat.server-4.9.1   <ejb, webservices, web>
+icat.server-4.11.1   <ejb, webservices, web>
 icat.lucene-1.1.0   <ejb, web>
 Command list-applications executed successfully.
 ```
@@ -174,7 +174,7 @@ testicat https://localhost:8181 simple username root password pw
 ```
 and the output would look like this (ignoring a warning about certificates):
 ```
-ICAT version 4.9.1
+ICAT version 4.11.1
 Logged in as simple/root with 119.996166667 minutes to go
 Login, search, create, delete and logout operations were all successful.
 ```
@@ -188,5 +188,5 @@ You can check that the ICAT Server is running in your browser. If you have not d
 
 will return:
 ```JSON
-{"version":"4.9.1"}
+{"version":"4.11.1"}
 ```

@@ -16,13 +16,13 @@ Before we start installing the ICAT Software, we will install the prerequisites:
 
 The first component we will install is an authentication plugin which will handle authenticating users to all the subsequent components. Next to be installed will be the ICAT Server which authenticates users, allows access to the data catalogue through its APIs and coordinates the ICAT Data Service. A storage plugin will be installed to provide access to the file system for the ICAT Data Service (IDS). The IDS controls access to the data files in the ICAT catalogue and will be installed next. After creating some test data, we will install the TopCat web interface which provides an easy to use interface to the ICAT Software.
 
-At the time of writing this tutorial, the current stable version of the ICAT Server - the main component of the ICAT software - is 4.9.1. This will be the version installed in this tutorial along with its dependencies. The full list of software and components installed in this tutorial are listed below:
+At the time of writing this tutorial, the current stable version of the ICAT Server - the main component of the ICAT software - is 4.11.1. This will be the version installed in this tutorial along with its dependencies. The full list of software and components installed in this tutorial are listed below:
 
 - OpenJDK Java 1.8.0
-- Payara 4.1.2.181
+- Payara 5.2022.1
 - MariaDB 5.5.56
-- Simple Authenticator [2.0.0](https://repo.icatproject.org/site/authn/simple/2.0.0/)
-- ICAT Server [4.9.1](https://repo.icatproject.org/site/icat/server/4.9.1/)
-- IDS Storage File plugin [1.4.1](https://repo.icatproject.org/site/ids/storage_file/1.4.1/)
-- ICAT Data Server (IDS) [1.9.0](https://repo.icatproject.org/site/ids/server/1.9.0/)
-- TopCat [2.4.0](https://repo.icatproject.org/site/topcat/2.4.0/)
+- Simple Authenticator [2.0.1](https://repo.icatproject.org/site/authn/simple/2.0.1/)
+- ICAT Server [4.11.1](https://repo.icatproject.org/site/icat/server/4.11.1/)
+- IDS Storage File plugin [1.4.3](https://repo.icatproject.org/site/ids/storage_file/1.4.3/)
+- ICAT Data Server (IDS) [1.12.0](https://repo.icatproject.org/site/ids/server/1.12.0/)
+- TopCat [2.4.8](https://repo.icatproject.org/site/topcat/2.4.8/)

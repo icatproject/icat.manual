@@ -1,6 +1,6 @@
 | Component         | Version | Installation                                                                                      | Documentation |
 | ---------         | ------- | ------------                                                                                      | ------------- |
-| ids.storage_file  | 1.4.1   | [Installation Guide](https://repo.icatproject.org/site/ids/storage_file/1.4.1/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service) |
+| ids.storage_file  | 1.4.3   | [Installation Guide](https://repo.icatproject.org/site/ids/storage_file/1.4.3/installation.html)  | [Component Documentation](https://icatproject.org/user-documentation/icat-data-service) |
 
 Chapter 07: Install a Storage Plugin for the ICAT Data Service (IDS)
 ===================================================================
@@ -16,9 +16,9 @@ Download and unzip
 ------------------
 ```Shell
 cd ~/downloads
-curl -O 'https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.1/ids.storage_file-1.4.1-distro.zip'
+curl -O 'https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.3/ids.storage_file-1.4.3-distro.zip'
 cd ~/install
-unzip ~/downloads/ids.storage_file-1.4.1-distro.zip
+unzip ~/downloads/ids.storage_file-1.4.3-distro.zip
 ```
 
 Configure the Storage Plugin
@@ -29,7 +29,7 @@ Change directory to the `ids.storage_file` directory. Create `setup.properties` 
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara41
+home = /home/glassfish/payara5.2022.1
 port = 4848
 ```
 

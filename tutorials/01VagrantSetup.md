@@ -26,7 +26,16 @@ This will create a Vagrant configuration file called `Vagrantfile`. Open the fil
 config.vm.network "forwarded_port", guest: 8080, host: 18080
 config.vm.network "forwarded_port", guest: 8181, host: 18181
 config.vm.network "forwarded_port", guest: 4848, host: 14848
+
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
 ```
+
 This setting will allow you to access the TopCat web interface at the end of this tutorial.
 
 Now you can start your VM and log in:

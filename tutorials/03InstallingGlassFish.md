@@ -1,48 +1,113 @@
 | Component | Version | Installation                                                                                  | Documentation |
 | --------- | ------- | ------------                                                                                  | ------------- |
-| GlassFish | 4.0     | [Installation Guide (pdf)](https://javaee.github.io/glassfish/doc/4.0/installation-guide.pdf) | [ICAT Documentation](https://icatproject.org/installation/glassfish/) -  [Official Documentation](https://javaee.github.io/glassfish/documentation) |
+| Payara | 5.2022.1     | [Installation Guide](https://docs.payara.fish/community/docs/5.2022.1/getting-started/getting-started.html) | [ICAT Documentation](https://icatproject.org/installation/glassfish/) -  [Official Documentation](https://docs.payara.fish/community/docs/5.2022.1/README.html) |
 
-Chapter 03: Installing GlassFish
-===============================
+Chapter 03: Installing Payara
+=============================
 
 Overview
 --------
-The GlassFish Application Server is installed by simply downloading a zip file and uncompressing it. The server is able to host multiple domains so we need to choose a domain name for our ICAT installation. In this tutorial, we will use the domain name `localhost`. The files for the domain are stored under `glassfish/<domain_name>`, in our case `glassfish/localhost`, under the top level GlassFish directory.
+The Payara Application Server is installed by simply downloading a zip file and uncompressing it. The server is able to host multiple domains so we need to choose a domain name for our ICAT installation. In this tutorial, we will use the default domain name `domain1`. The files for the domain are stored under `payara5.2022.1/glassfish/domains/<domain_name>`, in our case `payara5.2022.1/glassfish/domains/domain1`.
 
-Download and unzip GlassFish
-----------------------------
+**NB: the commands on this page should be entered as the `glassfish` user**
+
+Create Directories for the Files
+--------------------------------
+
 ```Shell
-wget http://download.java.net/glassfish/4.0/release/glassfish-4.0.zip
-unzip glassfish-4.0.zip
+mkdir downloads install scripts
 ```
 
-Configure GlassFish
--------------------
+Download and unzip Payara
+-------------------------
 
-Add the GlassFish directory to the path so we have access to the `asadmin` program which is used to administer the GlassFish application server. This step must be completed before running the script below as it uses the `asadmin` program.
 ```Shell
-echo 'export PATH=$PATH:$HOME/glassfish4/bin' >> $HOME/.bashrc
+cd downloads/
+curl -O 'https://repo1.maven.org/maven2/fish/payara/distributions/payara/5.2022.1/payara-5.2022.1.zip'
+cd ~
+unzip downloads/payara-5.2022.1.zip
+```
+
+Configure Payara
+----------------
+
+Add the Payara directory to the path so we have access to the `asadmin` program which is used to administer the Payara application server. This step must be completed before running the script below as it uses the `asadmin` program.
+
+```Shell
+echo 'export PATH=$HOME/payara5.2022.1/bin:$PATH' >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
+Check that it works:
 
-Download a script to set up GlassFish for ICAT
-```
-wget https://icatproject.org/misc/scripts/setup-glassfish.py
-```
-
-Run the setup script. We pass it 3 options: the hostname, the maximum amount of memory to use and the password for the root account of the MySQL database. So for a domain name of `localhost`, with a maximum memory usage of 75% and a root MySQL account password of 'pw', run:
 ```Shell
-python setup-glassfish.py localhost 75% pw
+which asadmin
 ```
+outputs: *~/payara5.2022.1/bin/asadmin*
 
-Configure GlassFish for MySQL
------------------------------
+Download a script to configure Payara for ICAT
 
-We need the MySQL Connector library to enable ICAT to access the MySQL database. This was installed to the system in the previous chapter. We need to copy the jar file to the correct directory - the `localhost` domain of the GlassFish server - then restart GlassFish so that it is found.
 ```Shell
-cp /usr/share/java/mysql-connector-java-5.1.17.jar $HOME/glassfish4/glassfish/domains/localhost/lib/ext/
-asadmin stop-domain localhost
-asadmin start-domain localhost
+cd scripts/
+curl -O https://raw.githubusercontent.com/icatproject/icat.utils/master/src/main/scripts/setup-glassfish.py
+cd
 ```
 
-*N.B. Note the last 2 commands which restart GlassFish. It is often helpful to restart GlassFish when troubleshooting a problem with the software or installation process.*
+Run the setup script. We pass it 3 options: the domain name, the maximum amount of memory to use and the password for the root account of the MariaDB database. So for a domain name of `domain1`, with a maximum memory usage of 75% and a root MariaDB account password of 'pw', run:
+
+```Shell
+python scripts/setup-glassfish.py domain1 75% pw
+```
+
+Configure Payara for MariaDB
+----------------------------
+
+We need the MySQL Connector library to enable ICAT to access the MariaDB database. This was installed to the system in the previous chapter. We need to copy the jar file to the correct directory - the `domain1` domain of the Payara server - then restart Payara so that it is found.
+
+```Shell
+cp /usr/share/java/mysql-connector-java-5.1.17.jar $HOME/payara5.2022.1/glassfish/domains/domain1/lib/
+asadmin stop-domain
+asadmin start-domain
+```
+
+*N.B. Note the last 2 commands which restart Payara. It is often helpful to restart Payara when troubleshooting a problem with the software or installation process.*
+
+Check the certificate
+---------------------
+
+In this tutorial, we will set up the components to communicate with each other securely. To do this, the hostname we give for a component must match the Common Name (CN) in the certificate provided by that component. Since all the components run inside Payara, they provide Payara's certificate. By default, Payara uses a self-signed certificate. It is beyond the scope of this tutorial to cover how to install certificates in Payara so we will use the self-signed certificate. You can find more information on installing certificates [here](https://icatproject.org/installation/glassfish-certificate/).
+
+To find the hostname of your VM:
+```Shell
+hostname
+```
+will output `localhost.localdomain` if you are using the Vagrant setup recommended in this tutorial.
+
+To find the Common Name (CN) of the certificate provided by Payara:
+```Shell
+echo | openssl s_client -connect localhost:8181  -showcerts 2> /dev/null | egrep 'subject|issuer'
+```
+will output:
+```
+subject=/C=UK/ST=Worcestershire/L=Great Malvern/O=Payara Foundation/OU=Payara/CN=localhost.localdomain
+issuer=/C=UK/ST=Worcestershire/L=Great Malvern/O=Payara Foundation/OU=Payara/CN=localhost.localdomain
+```
+if you have followed the Vagrant setup.
+
+Check access from your browser
+------------------------------
+
+You can check that Payara is accessible from your browser by loading the admin page. There is no need to log in - just check that the page loads. You will have to click through to accept the connection to an untrusted site as the self-signed certificate is not trusted by your browser.
+
+If you have followed the recommended Vagrant set up, then port `14848` on your host machine will be  mapped to port `4848` on the VM.
+
+(https://localhost:14848)
+
+Troubleshooting: Finding the Logs
+---------------------------------
+
+If you need to troubleshoot a problem, you can find the Payara logs at:
+
+```Shell
+/home/glassfish/payara5.2022.1/glassfish/domains/domain1/logs/server.log
+```
+

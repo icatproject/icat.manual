@@ -1,6 +1,6 @@
 ## Development within a VM
 
-You can create a Topcat development environment via Vagrant \([https://www.vagrantup.com/](https://www.vagrantup.com/)\):
+You can create a Topcat development environment via Vagrant ([https://www.vagrantup.com/](https://www.vagrantup.com/)):
 
 ```
 git clone https://github.com/icatproject/topcat.git
@@ -23,7 +23,7 @@ You will be able to log into the "TEST" facility with the following credentials:
 * Username: root
 * Password: root
 
-You can rebuild the server side \(i.e. anything Java related\) by:
+You can rebuild the server side (i.e. anything Java related) by:
 
 ```
 vagrant ssh

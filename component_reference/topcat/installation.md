@@ -8,13 +8,13 @@ TopCAT requires Java 8+, icat.server 4.6+ and ids.server 1.5.0.+
 
 * The TopCAT distribution: 
   [topcat-2.3.5-distro.zip](https://repo.icatproject.org/repo/org/icatproject/topcat/2.3.5/topcat-2.3.5-distro.zip)
-* A suitable deployed container \(here assumed to be glassfish\) to support a web application. Testing has been carried out with Glassfish 4.0. 
+* A suitable deployed container (here assumed to be glassfish) to support a web application. Testing has been carried out with Glassfish 4.0. 
   [Glassfish installation instructions](http://icatproject.org/installation/glassfish/)
    are available.
 * A database as described in 
   [Database installation instructions](http://icatproject.org/installation/database/)
    installed on the server.
-* Python \(version 2.4 to 2.7\) installed on the server.
+* Python (version 2.4 to 2.7) installed on the server.
 
 ## Summary of Steps
 
@@ -56,7 +56,7 @@ The backend configuration consists of two files:
 * **topcat-setup.properties**
    - used to configure the application container e.g. database connection and mail server etc…
 * **topcat.properties**
-   - used to configure Topcat \(application\) specific settings e.g. email messages or IDS polling intervals.
+   - used to configure Topcat (application) specific settings e.g. email messages or IDS polling intervals.
 
 ### Frontend configuration
 
@@ -166,7 +166,7 @@ A high level overview of the topcat.json file is as follows:
 from the above example there are two attributes defined:
 
 * “site” - configures anything anything global across facilities e.g. the cart, information pages or branding etc.
-* “facilities” - configures anything specific to a facility e.g. authentication, column headings or download transport \(i.e. delivery\) methods.
+* “facilities” - configures anything specific to a facility e.g. authentication, column headings or download transport (i.e. delivery) methods.
 
 ### Medium level overview
 
@@ -212,7 +212,7 @@ If we expand the attributes in high level overview we can get a medium overview 
 from the above following attributes defined:
 
 * “site”
-  * “topcatUrl” - the path to a valid Topcat REST API \(optional\).
+  * “topcatUrl” - the path to a valid Topcat REST API (optional).
   * “home” - the section the user gets redirected to after logging in can be “my-data”, “browse” or “search”
   * “enableEuCookieLaw” - will show a cookie policy banner which the user can dismiss.
   * “paging” - specifies the paging type configuration i.e. for either paged or infinite scroll
@@ -224,17 +224,17 @@ from the above following attributes defined:
   * “pages” - allows you to define information pages e.g. “About Us” or “Contact” etc…
 * “facilities” - an array of facility configuration objects.
   * \[facility\]
-    * “name” - The facility name as it appears on the \(Icat\) database. Used as a key to reference the facility details.
+    * “name” - The facility name as it appears on the (Icat) database. Used as a key to reference the facility details.
     * “title” - A user friendly title that will appear in the tabs etc…
-    * “icatUrl” - A URL to a valid Icat REST API \(optional - if not explicity specified it will obtain this url from the IDS server below\)
+    * “icatUrl” - A URL to a valid Icat REST API (optional - if not explicity specified it will obtain this url from the IDS server below)
     * “idsUrl” - A URL to a valid IDS REST API
     * “idsUploadDatafileFormat” - The name of the Icat DatafileFormat entity that will be associated with the uploaded files.
     * “idsUploadDatasetType” - The name of the Icat DatasetType entity that will be associated with dataset that gets created when uploading files at the dataset level.
     * idsUploadMaxTotalFileSize" - The maximum total amount a user can upload in one go in bytes.
     * “hierarchy” - the entity heierachy of the browse section.
-    * “authenticationTypes” - specifies the authentication plugins to be used e.g. LDAP \(optional - if not explicity specified it will obtain them from the icat server\)
-    * “downloadTransportTypes” - specifies the download delivery methods e.g. ‘https’ \(via a browser\) or ‘globus’ \(a type of glorified ftp to deal with large files\).
-    * “admin” - defines the structure of admin interface. This interface is only available to admin users \(specified in topcat.properties\).
+    * “authenticationTypes” - specifies the authentication plugins to be used e.g. LDAP (optional - if not explicity specified it will obtain them from the icat server)
+    * “downloadTransportTypes” - specifies the download delivery methods e.g. ‘https’ (via a browser) or ‘globus’ (a type of glorified ftp to deal with large files).
+    * “admin” - defines the structure of admin interface. This interface is only available to admin users (specified in topcat.properties).
     * “myData” - specifies the structure of the “My Data” section.
     * “browse” - specifies the structure of the hierachical browse section.
 
@@ -312,7 +312,7 @@ An example breadcrumb configuration:
 
 Specifies the structure of the search results and search fields for searching across facilities.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -345,7 +345,7 @@ An example \(partial\) configuration:
 
 Specifies the structure of the root of “browse” section of the site. This only applies to a Topcat with multiple facilities.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -366,7 +366,7 @@ An example \(partial\) configuration:
 
 Specifies the structure of the cart.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -389,7 +389,7 @@ An example \(partial\) configuration:
 
 Specifies the structure of ‘downloads’ dialog box.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -435,7 +435,7 @@ An example configuration:
 * “url” - The url of the page.
 * “stateName” - A unique token that represents that state.
 * “addToNavBar” - Specified whether or not as link should be added to the top bar.
-  * “linkLabel” - the label \(i.e. text\) for the link.
+  * “linkLabel” - the label (i.e. text) for the link.
   * “align” - whether the link should be on the “left” or “right” hand side.
 * “contents” - the html contents of the page specified in lang.json file. If not defined it will try and work the translation variable based on the stateName. e.g.
   * stateName: “about” -
@@ -501,7 +501,7 @@ An example configuration:
 
 ### topcat.json: “facilities” &gt; \[facility\] &gt; “downloadTransportTypes”
 
-Specifies the download delivery methods e.g. ‘https’ \(via a browser\) or ‘globus’ \(a type of glorified ftp to deal with large files\).
+Specifies the download delivery methods e.g. ‘https’ (via a browser) or ‘globus’ (a type of glorified ftp to deal with large files).
 
 An example configuration:
 
@@ -534,9 +534,9 @@ An example configuration:
 
 ### topcat.json: “facilities” &gt; \[facility\] &gt; “admin”
 
-Defines the structure of admin interface. This interface is only available to admin users \(specified in topcat.properties\).
+Defines the structure of admin interface. This interface is only available to admin users (specified in topcat.properties).
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -557,7 +557,7 @@ An example \(partial\) configuration:
 
 Specifies the structure of the “My Data” section.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -574,13 +574,13 @@ An example \(partial\) configuration:
 ```
 
 * “entityType” - the entity type can be either “investigation”, “dataset” or “datafile”.
-* “gridOptions” - the grid options for the Icat entity type \(specified\). See “gridOptions configuration” for more information.
+* “gridOptions” - the grid options for the Icat entity type (specified). See “gridOptions configuration” for more information.
 
 ### topcat.json: “facilities” &gt; \[facility\] &gt; “browse”
 
 Specifies the structure of the hierachical browse section.
 
-An example \(partial\) configuration:
+An example (partial) configuration:
 
 ```
 {
@@ -652,19 +652,19 @@ An example configuration:
 ```
 
 * “enableSelection” - whether or not the entity can be added to the cart. This only applies to “investigation”, “dataset” or “datafile”.
-* “enableUpload” - whether or not a user can upload files at this at this level \(i.e. enable an “Upload” button\). This only applies to “dataset” or “datafile”.
+* “enableUpload” - whether or not a user can upload files at this at this level (i.e. enable an “Upload” button). This only applies to “dataset” or “datafile”.
   * “columnDefs” - the column definitions of the grid.
     * “field” - The field you want to display in the column.
       * the dot notation e.g. “investigationInstrument.fullName” refers to “\[variable name\].\[field name\]” - see the “standard jpql variables” for more info.
       * there are also 3 special field names which get loaded in asynchronously.
-        * size - the sum of all the descendant files fileSize \(applies to the investigation and dataset entities\).
-        * datasetCount - the total number of descendant datasets \(applies to the investigation entity\).
-        * datafileCount - the total number of descendant datafiles \(applies to the investigation and dataset entities\).
+        * size - the sum of all the descendant files fileSize (applies to the investigation and dataset entities).
+        * datasetCount - the total number of descendant datasets (applies to the investigation entity).
+        * datafileCount - the total number of descendant datafiles (applies to the investigation and dataset entities).
     * “link” - whether or not to link to the next entity in the hierachy.
     * “breadcrumb” - whether or not you want to use the field value as title in the breadcrumb. By default this will be ‘title’ or ‘name’ if the entity has these fields.
     * “excludeFuture” - will preload the date ‘to’ filter with the current time, thus elliminating any rows in the future.
     * “sort” - allows the sorting of the rows by this particular column.
-      * “direction” - the direction the rows should be sorted by can be “asc” \(ascending\) or “desc” \(descending\).
+      * “direction” - the direction the rows should be sorted by can be “asc” (ascending) or “desc” (descending).
       * “priority” - if sorting by multiple columns, you can set the order in which rows get sorted by e.g. “title” then “startDate”.
 
 ### topcat.json: metaTabs configuration
@@ -715,7 +715,7 @@ An example configuration:
   * items - the items to be displayed inside the metatab
     * “field” - the field to be displayed.
     * “label” - a label to describe what the field is. By default this will field name.
-    * “template” - a custom \(angular\) template to display the field.
+    * “template” - a custom (angular) template to display the field.
 
 ### topcat.json: standard jpql variables
 

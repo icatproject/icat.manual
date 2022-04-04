@@ -34,10 +34,14 @@ We install MariaDB, the MySQL java connector and some python dependencies.
 [root@localhost ~]# yum install mariadb-server mariadb MySQL-python python-suds python-requests mysql-connector-java
 ```
 
-Edit the MySQL configuration file at `/etc/my.cnf`. In the `[mysqld]` section, set the default storage engine to InnoDB.
+Edit the MySQL configuration file at `/etc/my.cnf`. In the `[client]` section, set the default character set to utf8. Set a similar option for the server side in the `[mysqld]` section. In the same section, also set the default storage engine to InnoDB.
 
 ```INI
+[client]
+default-character-set = utf8
+
 [mysqld]
+character_set_server = utf8
 default_storage_engine = InnoDB
 ```
 

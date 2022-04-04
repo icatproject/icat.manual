@@ -56,6 +56,16 @@ Create the database and user for ICAT to use. For this tutorial, the ICAT databa
 [root@localhost ~]# mysql --user=root --password=pw --execute="GRANT ALL PRIVILEGES ON *.* TO 'icatdbuser'@'localhost';"
 ```
 
+Configure locale
+----------------
+An issue has been discovered where non-ASCII characters get scrambled in ICAT's REST interface. See https://github.com/icatproject/icat.server/issues/204 for more details. To fix this issue, the correct locale should be installed and configured as environment variables. To do this, install `glibc-common` and set `LC_ALL` to `en_US.UTF-8`.
+
+```Shell
+
+yum install glibc-common
+export LC_ALL=en_US.UTF-8
+```
+
 Optionally install useful tools
 -------------------------------
 You may like to install you favourite editor and a terminal screen multiplexer eg.

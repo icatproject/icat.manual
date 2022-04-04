@@ -46,6 +46,18 @@ vagrant ssh
 
 You will now be connected to an `ssh` session on your virtual machine.
 
+By default, Vagrant VMs have a hostname of `localhost.localdomain`. You can check this issuing the command:
+```Shell
+hostname
+```
+
+This hostname can cause some issues with Payara and is slightly different to the standard `localhost` hostname used. To avoid issues later on, it is a good idea to change the hostname at this point:
+```Shell
+sudo hostname -b localhost
+```
+
+To check the change has been correctly applied, `hostname` should now output `localhost`.
+
 *Warning: Avoid issuing a `yum update` as it will install a new kernel which is not able to mount the directory shared between the host and virtual machines.*
 
 For a more detailed introduction to Vagrant, you could follow the tutorial on the Vagrant website [here](https://www.vagrantup.com/intro/getting-started/index.html "Vagrant Getting Started").

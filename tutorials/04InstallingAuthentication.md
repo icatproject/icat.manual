@@ -25,13 +25,13 @@ unzip ~/downloads/authn.simple-2.0.1-distro.zip
 Configure the authentication plugin
 -----------------------------------
 
-Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara5.2022.1`. Finally we set the port for communication with the Payara server.
+Change directory to `authn.simple` and use your favourite editor to create the `setup.properties` file. The `container` in this tutorial is `Glassfish` (note the case) - since Payara is a fork of Glassfish - and the `home` points to the location of the Payara installation. In this tutorial it is `/home/glassfish/payara5`. Finally we set the port for communication with the Payara server.
 
 ```INI
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara5.2022.1
+home = /home/glassfish/payara5
 port = 4848
 ```
 

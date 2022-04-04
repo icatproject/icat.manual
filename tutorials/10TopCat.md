@@ -42,7 +42,7 @@ db.password    = icatdbuserpw
 
 secure = true
 container = Glassfish
-home = /home/glassfish/payara5.2022.1
+home = /home/glassfish/payara5
 port = 4848
 ```
 

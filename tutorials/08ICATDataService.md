@@ -38,7 +38,7 @@ Change directory into `~/install/ids.server`. The `setup.properties` should be f
 #Glassfish
 secure = true
 container = Glassfish
-home = /home/glassfish/payara5.2022.1
+home = /home/glassfish/payara5
 port = 4848
 
 #Any libraries needed (space separated list of jars in domain's lib/applibs

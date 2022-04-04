@@ -84,7 +84,7 @@ authn.list = simple
 !authn.ldap.admin    = true
 !authn.ldap.friendly = Federal Id
 
-authn.simple.url      = https://localhost.localdomain:8181
+authn.simple.url      = https://localhost:8181
 authn.simple.friendly = Simple
 
 !authn.anon.url      = https://localhost:8181
@@ -99,7 +99,7 @@ notification.Datafile = CU
 log.list = SESSION WRITE READ INFO
 
 # Lucene
-lucene.url = https://localhost.localdomain:8181
+lucene.url = https://localhost:8181
 lucene.populateBlockSize = 1000
 lucene.directory = /home/glassfish/data/lucene
 lucene.backlogHandlerIntervalSeconds = 60

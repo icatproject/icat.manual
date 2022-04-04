@@ -50,11 +50,11 @@ Copy the `topcat.properties.example` file to `topcat.properties`. We associate t
 ```INI
 facility.list = LILS
 
-facility.LILS.icatUrl = https://localhost.localdomain:8181
-facility.LILS.idsUrl = https://localhost.localdomain:8181
+facility.LILS.icatUrl = https://localhost:8181
+facility.LILS.idsUrl = https://localhost:8181
 
-facility.LILS.downloadType.http = http://localhost.localdomain:8080
-facility.LILS.downloadType.https = https://localhost.localdomain:8181
+facility.LILS.downloadType.http = http://localhost:8080
+facility.LILS.downloadType.https = https://localhost:8181
 
 # enable send email
 mail.enable = false
@@ -77,7 +77,7 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
 ```JSON
 {
     "site": {
-        "topcatUrl": "https://localhost.localdomain:18181",
+        "topcatUrl": "https://localhost:18181",
 
 ...
 
@@ -86,8 +86,8 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
         {
             "name": "LILS",
             "title": "Lorum Ipsum Light Source",
-            "idsUrl": "https://localhost.localdomain:18181",
-            "icatUrl": "https://localhost.localdomain:18181",
+            "idsUrl": "https://localhost:18181",
+            "icatUrl": "https://localhost:18181",
 
 ...
 
@@ -100,11 +100,11 @@ We only need to change the `topcat.json` file for this tutorial. As above, we ne
             "downloadTransportTypes": [
                 {
                     "type" : "http",
-                    "idsUrl": "http://localhost.localdomain:18080"
+                    "idsUrl": "http://localhost:18080"
                 },
                 {
                     "type" : "https",
-                    "idsUrl": "https://localhost.localdomain:18181"
+                    "idsUrl": "https://localhost:18181"
                 },
             ]
 
@@ -183,7 +183,7 @@ Log in to TopCat
 
 If you have followed all the steps in this tutorial successfully, you should have a working installation of the ICAT software loaded with test data. If you have used the suggested Vagrant setup from this tutorial you may now access your TopCat installation from your web browser by visiting the following URL:
 
-(https://localhost.localdomain:18181/)
+(https://localhost:18181/)
 
 selecting 'Lorum Ipsum Light Source' as the facility and entering 'root' and 'pw' as the username and password respectively.
 

@@ -23,7 +23,7 @@ Add simple/reader to icatdb
 To add the `simple/reader` user into ICAT's database, send the following request to the ICAT API:
 
 ```Shell
-curl -k --request POST 'https://localhost:8181/icat/entityManager' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'sessionId=$ICAT_SESSION' --data-urlencode 'entities=[
+curl -k --request POST 'https://localhost:8181/icat/entityManager' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'sessionId='$ICAT_SESSION'' --data-urlencode 'entities=[
     {
         "User": {
             "name": "simple/reader",
@@ -52,7 +52,7 @@ In ICAT, rules are associated with a group of users so users can be easily make 
 ```Shell
 curl -k --location --request POST 'https://localhost:8181/icat/entityManager' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'sessionId=$ICAT_SESSION' \
+--data-urlencode 'sessionId='$ICAT_SESSION'' \
 --data-urlencode 'entities=[
     {
         "Grouping": {
@@ -81,30 +81,30 @@ The next step is to create the rules. For the reader account to use the IDS, it 
 ```Shell
 curl -k --request POST 'https://localhost:8181/icat/entityManager' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'sessionId=$ICAT_SESSION' \
+--data-urlencode 'sessionId='$ICAT_SESSION'' \
 --data-urlencode 'entities=[
     {
         "Rule": {
             "crudFlags": "R",
             "what": "Investigation",
-            "grouping": {"id": $READER_GROUPING_ID}
+            "grouping": {"id": '$READER_GROUPING_ID'}
         }
     },
     {
         "Rule": {
             "crudFlags": "R",
             "what": "Dataset",
-            "grouping": {"id": $READER_GROUPING_ID}
+            "grouping": {"id": '$READER_GROUPING_ID'}
         }
     },
     {
         "Rule": {
             "crudFlags": "R",
             "what": "Datafile",
-            "grouping": {"id": $READER_GROUPING_ID}
+            "grouping": {"id": '$READER_GROUPING_ID'}
         }
     }
-]' | jq .[0]
+]'
 ```
 
 There's no need to export the IDs into environment variables as they won't be needed in future requests.
@@ -117,15 +117,15 @@ The final step is to link the grouping with the `simple/reader` user. In ICAT, t
 ```Shell
 curl -k --request POST 'https://localhost:8181/icat/entityManager' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'sessionId=$ICAT_SESSION' \
+--data-urlencode 'sessionId='$ICAT_SESSION'' \
 --data-urlencode 'entities=[
     {
         "UserGroup": {
             "user": {
-                "id": $READER_USER_ID
+                "id": '$READER_USER_ID'
             },
             "grouping": {
-                "id": $READER_GROUPING_ID
+                "id": '$READER_GROUPING_ID'
             }
         }
     }
@@ -142,8 +142,8 @@ curl -k --data 'json={"plugin":"simple", "credentials": [{"username":"reader"}, 
 export READER_ICAT_SESSION=999857dd-3b70-4c96-9fd4-a27511b3692d  
 
 # Query for the first 10 datasets - this should return data because of the rule
-curl -k --request GET 'https://localhost:8181/icat/entityManager?sessionId=$READER_ICAT_SESSION&query=SELECT%20o%20FROM%20Dataset%20o%20LIMIT%200,10'
+curl -k --request GET 'https://localhost:8181/icat/entityManager?sessionId='$READER_ICAT_SESSION'&query=SELECT%20o%20FROM%20Dataset%20o%20LIMIT%200,10'
 
 # Query for the first 10 instruments - this should return an empty list because the simple/reader has no read rule on the Instrument entity
-curl -k --request GET 'https://localhost:8181/icat/entityManager?sessionId=999857dd-3b70-4c96-9fd4-a27511b3692d&query=SELECT%20o%20FROM%20Instrument%20o%20LIMIT%200,10'
+curl -k --request GET 'https://localhost:8181/icat/entityManager?sessionId='$READER_ICAT_SESSION'&query=SELECT%20o%20FROM%20Instrument%20o%20LIMIT%200,10'
 ```

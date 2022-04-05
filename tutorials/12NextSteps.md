@@ -1,4 +1,4 @@
-Chapter 11: Next Steps
+Chapter 12: Next Steps
 ======================
 
 - Read the Friendly As-Yet-Unwritten Manual (RTFAYUM)
@@ -6,7 +6,6 @@ Chapter 11: Next Steps
   - [Anonymous authenticator](https://repo.icatproject.org/site/authn/anon/2.0.1/installation.html)
   - [Database authenticator](https://repo.icatproject.org/site/authn/db/2.0.1/installation.html)
   - [LDAP authenticator](https://repo.icatproject.org/site/authn/ldap/2.0.1/installation.html)
-- Configure authentication rules
 - Install more storage plugins (are there any more?)
 - Ingest some real data - is there a tutorial on how to do this?
 - Secure your system with a [certificate](https://icatproject.org/installation/glassfish-certificate/)

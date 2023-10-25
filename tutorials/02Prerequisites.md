@@ -22,7 +22,12 @@ Install Java
 ICAT requires at least JDK verion 1.8. Since ICAT is distributed online as a collection of .zip files, we will also need to install unzip.
 
 ```Shell
-[root@localhost ~]# yum install java-1.8.0-openjdk-headless java-1.8.0-openjdk-devel unzip
+[root@localhost ~]# yum install java-11-openjdk-headless java-11-openjdk-devel unzip
+```
+
+For Rocky 8:
+```bash
+dnf install java-11-openjdk-headless java-11-openjdk-devel unzip
 ```
 
 Install and configure MariaDB
@@ -32,6 +37,11 @@ We install MariaDB, the MySQL java connector and some python dependencies.
  
 ```Shell
 [root@localhost ~]# yum install mariadb-server mariadb MySQL-python python-suds python-requests mysql-connector-java
+```
+
+For Rocky 8:
+```bash
+dnf install mariadb-server mariadb mysql-connector-java
 ```
 
 Edit the MySQL configuration file at `/etc/my.cnf`. In the `[client]` section, set the default character set to utf8. Set a similar option for the server side in the `[mysqld]` section. In the same section, also set the default storage engine to InnoDB.
@@ -52,6 +62,8 @@ Start the MariaDB database, enable to run on boot then run `mysql-secure-install
 [root@localhost ~]# systemctl enable mariadb.service
 [root@localhost ~]# mysql_secure_installation
 ```
+
+Note that `mariadb` will fail to start without useful logging if Docker is port forwarding `3306` to a container (for example, as part of the [Docker installation of ICAT](https://github.com/icatproject-contrib/icat-cloud-native-migration)). The easiest solution is to change the localhost port (e.g. to `13306`).
 
 Create the database and user for ICAT to use. For this tutorial, the ICAT database is 'icatdb', the database user is 'icatdbuser' and the password is 'icatdbuserpw'.
 ```Shell

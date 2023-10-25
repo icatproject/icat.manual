@@ -42,6 +42,11 @@ python setup.py build
 pip install --user .
 ```
 
+Alternatively just install with pip rather than curling a tar:
+```Shell
+pip install PyYAML python-icat
+```
+
 Download and install the test data
 ----------------------------------
 
